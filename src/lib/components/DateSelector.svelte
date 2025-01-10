@@ -22,8 +22,36 @@
 	}
 </script>
 
+<style>
+    @media (max-width: 1250px) {
+        #slider {
+            width: 42rem;
+        }
+    }
+    @media (max-width: 920px) {
+        #slider {
+            width: 30rem;
+        }
+    }
+    @media (max-width: 640px) {
+        #slider {
+						bottom: 2rem;
+            width: 23rem;
+
+        }
+				svg {
+						width: 0.75rem;
+						height: 0.75rem;
+				}
+        span {
+						width: 6rem;
+						font-size: 1rem;
+				}
+    }
+</style>
+
 <div
-	class="bg-white border border-gray-200 rounded-lg shadow-sm flex flex-col justify-center items-center space-y-4 p-5"
+	id="slider" class="absolute z-10 bottom-2 left-0 right-0 mx-auto w-[42rem] bg-white border border-gray-200 rounded-lg shadow-sm flex flex-col justify-center items-center space-y-4 p-5"
 >
 	<div class="flex flex-row space-x-4 justify-center items-center">
 		<button

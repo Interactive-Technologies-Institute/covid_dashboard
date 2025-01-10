@@ -141,22 +141,16 @@
 			chartData={chartData}
 			chart2Data={chart2Data}
 		/>
-		<div class="absolute z-10 bottom-5 right-5">
-			<ColorScale config={getConfig(type)} />
-		</div>
-		<div class="absolute z-10 top-5 right-5">
-			<InfoCard
-				aces={hACES}
-				concelho={hConcelho}
-				freguesia={hFreguesia}
-				value={hValue}
-				label={getConfig(type).label}
-				description={getConfig(type).description}
-			/>
-		</div>
-		<div class="absolute z-10 bottom-2 left-0 right-0 mx-auto w-[42rem]">
-			<DateSelector minDate={data.minDate} maxDate={data.maxDate} bind:date />
-		</div>
+		<ColorScale config={getConfig(type)} />
+		<InfoCard
+			aces={hACES}
+			concelho={hConcelho}
+			freguesia={hFreguesia}
+			value={hValue}
+			label={getConfig(type).label}
+			description={getConfig(type).description}
+		/>
+		<DateSelector minDate={data.minDate} maxDate={data.maxDate} bind:date />
 	</div>
 	<Footer />
 </div>

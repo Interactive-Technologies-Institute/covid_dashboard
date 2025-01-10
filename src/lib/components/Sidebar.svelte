@@ -20,7 +20,7 @@
 	export let chart2Data: ChartData[] | null;
 	let date = data.minDate;
 
-	let isOpen = true;
+	let isOpen = false;
 </script>
 
 

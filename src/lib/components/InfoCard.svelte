@@ -10,7 +10,7 @@
 </script>
 
 <div
-	class="bg-white border border-gray-200 rounded-lg shadow-sm w-96 p-5 flex flex-col justify-center items-stretch font-medium text-black text-center"
+	class="absolute z-10 top-24 right-5 bg-white border border-gray-200 rounded-lg shadow-sm w-96 p-5 flex flex-col justify-center items-stretch font-medium text-black text-center"
 >
 	{#if hasData}
 		<p class="text-xl">{label}</p>

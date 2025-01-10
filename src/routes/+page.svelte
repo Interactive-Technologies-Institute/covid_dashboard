@@ -10,11 +10,9 @@
 	import Map from '$lib/components/Map/Map.svelte';
 	import PixelLayer from '$lib/components/Map/PixelLayer.svelte';
 	import TradLayer from '$lib/components/Map/TradLayer.svelte';
-	import Slider from '$lib/components/Slider.svelte';
-	import Toggle from '$lib/components/Toggle.svelte';
-	import TypeSelector from '$lib/components/TypeSelector.svelte';
 	import SearchField from '$lib/components/SearchField.svelte';
 	import { DataType, configs, type ChartData, type MapConfig } from '$lib/constants';
+	import Sidebar from '$lib/components/Sidebar.svelte';
 	import PoisLayer from '$lib/components/Map/PoisLayer.svelte';
 
 	export let data;
@@ -72,8 +70,8 @@
 	$: chart2Data = getChart2Data(selectedACES);
 </script>
 
-<div class="flex flex-col h-screen w-screen">
-	<div class="grow relative">
+<div class="flex flex-col min-h-screen w-screen">
+	<div class="relative flex-grow h-screen flex">
 		<Map>
 			{#if isTrad}
 				<TradLayer
@@ -129,32 +127,20 @@
 				icon="lodging"
 			/>
 
-		
+
 			<SearchField />
 		</Map>
-		<div class="absolute z-10 top-5 left-5 flex flex-col space-y-4 w-96">
-			{#if !isTrad}
-				<TypeSelector bind:value={type} />
-			{/if}
-			<Slider bind:value={opacity} />
-			<div class="flex flex-row space-x-4">
-				<div class="flex flex-col space-y-1">
-					<Toggle label="ACES" bind:value={distritos} />
-					<Toggle label="Concelhos" bind:value={concelhos} />
-					<Toggle label="Freguesias" bind:value={freguesias} />
-				</div>
-				<div class="flex flex-col space-y-1">
-					<Toggle label="Saúde" bind:value={hospitais} />
-					<Toggle label="Ensino" bind:value={escolas} />
-					<Toggle label="Social" bind:value={casasDeRepouso} />
-				</div>
-			</div>
-			<LineChart minDate={data.minDate} maxDate={data.maxDate} {date} data={chartData} />
-			<LinesChart minDate={data.minDate} maxDate={data.maxDate} {date} data={chart2Data} />
-		</div>
-		<div class="absolute z-10 bottom-2 left-0 right-0 mx-auto w-[42rem]">
-			<DateSelector minDate={data.minDate} maxDate={data.maxDate} bind:date />
-		</div>
+		<Sidebar
+			bind:isTrad={isTrad}
+			bind:opacity={opacity}
+			bind:distritos={distritos}
+			bind:concelhos={concelhos}
+			bind:freguesias={freguesias}
+			bind:type={type}
+			bind:data={data}
+			chartData={chartData}
+			chart2Data={chart2Data}
+		/>
 		<div class="absolute z-10 bottom-5 right-5">
 			<ColorScale config={getConfig(type)} />
 		</div>
@@ -167,6 +153,9 @@
 				label={getConfig(type).label}
 				description={getConfig(type).description}
 			/>
+		</div>
+		<div class="absolute z-10 bottom-2 left-0 right-0 mx-auto w-[42rem]">
+			<DateSelector minDate={data.minDate} maxDate={data.maxDate} bind:date />
 		</div>
 	</div>
 	<Footer />

@@ -29,7 +29,7 @@
 		}
 </style>
 
-<footer class="bg-white flex flex-row flex-wrap gap-20 p-5 items-center justify-center">
+<footer class="bg-white flex flex-row flex-wrap gap-20 p-5 top-5 items-center justify-center z-50">
 	<img src="{base}/logos/ist.svg" alt="IST" class="h-10" />
 	<img src="{base}/logos/cerena.svg" alt="CERENA" class="h-10" />
 	<img src="{base}/logos/iti.svg" alt="ITI" class="h-10" />

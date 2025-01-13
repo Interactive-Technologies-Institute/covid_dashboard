@@ -15,6 +15,7 @@
 	import TypeSelector from '$lib/components/TypeSelector.svelte';
 	import SearchField from '$lib/components/SearchField.svelte';
 	import { DataType, configs, type ChartData, type MapConfig } from '$lib/constants';
+	import PoisLayer from '$lib/components/Map/PoisLayer.svelte';
 
 	export let data;
 

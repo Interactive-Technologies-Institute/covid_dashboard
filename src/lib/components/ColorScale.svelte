@@ -6,9 +6,35 @@
 	$: gradient = `linear-gradient(to bottom, ${config.stops.map((stop) => stop.color).join(', ')})`;
 </script>
 
+<style>
+    @media (max-width: 1250px) {
+        .color-scale {
+            width: 12rem;
+        }
+    }
+    @media (max-width: 920px) {
+        .color-scale {
+            width: 10rem;
+            height: 10rem;
+        }
+    }
+    @media (max-width: 640px) {
+        .color-scale {
+            width: 6rem;
+            height: 8rem;
+        }
+
+        .color-scale div span {
+            width: 6rem;
+            height: 8rem;
+
+        }
+    }
+</style>
+
 {#if config}
 	<div
-		class="absolute z-10 bottom-5 right-5 bg-white border border-gray-200 rounded-lg shadow w-56 flex flex-col justify-center items-start"
+		class="color-scale absolute z-10 bottom-5 right-5 bg-white border border-gray-200 rounded-lg shadow w-56 flex flex-col justify-center items-start"
 	>
 		<div class="rounded-t-lg bg-blue-600 w-full p-5 flex flex-col">
 			<span class="text-lg font-medium leading-tight text-white pb-2">{config.label}</span>

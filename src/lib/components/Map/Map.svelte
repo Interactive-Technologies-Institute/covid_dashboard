@@ -21,6 +21,12 @@
 		map.dragRotate.disable();
 		map.touchZoomRotate.disableRotation();
 
+		const bounds = new mapboxgl.LngLatBounds(
+			[-30.0, 36.0], // Southwest corner (lng, lat)
+			[5.0, 51.0]   // Northeast corner (lng, lat)
+		);
+		map.setMaxBounds(bounds);
+
 		return {
 			destroy() {
 				map?.remove();

@@ -1,0 +1,308 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-9.1393, 38.7266]
+            },
+            "properties": {
+                "title": "Escola Artística António Arroio"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-9.1390, 38.7360]
+            },
+            "properties": {
+                "title": "Escola Básica e Secundária D. Filipa de Lencastre"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-9.1604, 38.7518]
+            },
+            "properties": {
+                "title": "Colégio Militar"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-9.2035, 38.7015]
+            },
+            "properties": {
+                "title": "Escola Secundária do Restelo"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-9.1565, 38.7176]
+            },
+            "properties": {
+                "title": "Escola Secundária Pedro Nunes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-9.1000, 38.7590]
+            },
+            "properties": {
+                "title": "Escola Secundária António Damásio"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-9.1840, 38.7480]
+            },
+            "properties": {
+                "title": "Escola Secundária José Gomes Ferreira"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-9.1340, 38.7420]
+            },
+            "properties": {
+                "title": "Escola Secundária Rainha Dona Leonor"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-9.1420, 38.7200]
+            },
+            "properties": {
+                "title": "Escola Secundária de Camões"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-9.1600, 38.7600]
+            },
+            "properties": {
+                "title": "Escola Secundária Vergílio Ferreira"
+            }
+        },
+
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-8.6007, 41.1465]
+            },
+            "properties": {
+                "title": "Escola Secundária Infante D. Henrique"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-8.6427, 41.1580]
+            },
+            "properties": {
+                "title": "Escola Secundária Garcia de Orta"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-8.6822, 41.1865]
+            },
+            "properties": {
+                "title": "Escola Secundária João Gonçalves Zarco"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-8.4964, 41.1957]
+            },
+            "properties": {
+                "title": "Escola Secundária de Valongo"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-8.0781, 41.2726]
+            },
+            "properties": {
+                "title": "Escola Secundária de Amarante"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-7.9111, 38.5737]
+            },
+            "properties": {
+                "title": "Escola Secundária Severim de Faria"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-7.9135, 40.6610]
+            },
+            "properties": {
+                "title": "Escola Secundária de Viseu"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-8.6553, 40.6443]
+            },
+            "properties": {
+                "title": "Escola Secundária José Estêvão"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-8.8077, 39.7473]
+            },
+            "properties": {
+                "title": "Escola Secundária Domingos Sequeira"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-7.4909, 39.8221]
+            },
+            "properties": {
+                "title": "Escola Secundária Nuno Álvares"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-8.4281, 40.2103]
+            },
+            "properties": {
+                "title": "Escola Secundária Infanta Dona Maria"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-8.4291, 40.2105]
+            },
+            "properties": {
+                "title": "Escola Secundária José Falcão"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-7.5060, 40.2736]
+            },
+            "properties": {
+                "title": "Escola Secundária Quinta das Palmeiras"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-8.5412, 40.9050]
+            },
+            "properties": {
+                "title": "Escola Secundária Eça de Queirós"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-7.9135, 40.6610]
+            },
+            "properties": {
+                "title": "Escola Secundária Alves Martins"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-8.6291, 41.1621]
+            },
+            "properties": {
+                "title": "Escola Secundária Eng. Dionísio Augusto Cunha"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-8.6822, 41.7941]
+            },
+            "properties": {
+                "title": "Escola Secundária de Arga e Lima"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-7.9111, 38.5737]
+            },
+            "properties": {
+                "title": "Escola Secundária Miguel Torga"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-8.7072, 41.5615]
+            },
+            "properties": {
+                "title": "Escola Secundária de Tamel"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-8.8077, 39.7473]
+            },
+            "properties": {
+                "title": "Escola Secundária Domingos Sequeira"
+            }
+        }
+            
+        ]
+    
+}

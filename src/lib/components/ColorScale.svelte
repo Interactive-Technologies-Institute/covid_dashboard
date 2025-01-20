@@ -101,8 +101,6 @@
 	</div>
 	<button class="color-scale-button absolute bottom-10 right-10 z-20"
 					on:click={toggleColorButton}
-					on:mouseenter={() => (isColorButtonOpen = true)}
-					on:mouseleave={() => (isColorButtonOpen = false)}
 	>
 		<img src="{base}/icons/color_scale_icon.svg" alt="MENU" class="h-8" />
 	</button>

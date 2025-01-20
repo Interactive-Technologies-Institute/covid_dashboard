@@ -1,12 +1,20 @@
 <script lang="ts">
 	import type { MapConfig } from '$lib/constants';
+	import { base } from '$app/paths';
 	export let config: MapConfig;
 	let gradient: string;
 
 	$: gradient = `linear-gradient(to bottom, ${config.stops.map((stop) => stop.color).join(', ')})`;
+	let isColorButtonOpen = false;
+
+	function toggleColorButton() {
+		isColorButtonOpen = !isColorButtonOpen;
+		console.log('isColorButtonOpen:', isColorButtonOpen);
+	}
 </script>
 
 <style>
+		/*
     @media (max-width: 1250px) {
         .color-scale {
             width: 12rem;
@@ -29,26 +37,65 @@
             height: 8rem;
 
         }
+    }*/
+
+    .color-scale {
+        transition: transform 0.6s ease-in-out;
+        transform: translateX(1000px);
+    }
+    .color-scale.is-open {
+        transform: translateX(0);
+    }
+
+    .color-scale-button {
+        background-color: #ffffff;
+        border: 2px solid #2563eb; /* Blue border */
+        border-radius: 100%; /* Rounded corners */
+        padding: 10px; /* Add padding around the icon */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for depth */
+        cursor: pointer; /* Change cursor to pointer on hover */
+        transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Add hover effect */
+    }
+
+    .color-scale-button:hover {
+        background-color: #e0e0e0; /* Slightly darker background on hover */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+    }
+
+    .color-scale-button img {
+        display: block;
+        margin: 0 auto; /* Center the image inside the button */
     }
 </style>
 
-{#if config}
-	<div
-		class="color-scale absolute z-10 bottom-5 right-5 bg-white border border-gray-200 rounded-lg shadow w-56 flex flex-col justify-center items-start"
-	>
-		<div class="rounded-t-lg bg-blue-600 w-full p-5 flex flex-col">
-			<span class="text-lg font-medium leading-tight text-white pb-2">{config.label}</span>
-			{#if config.description !== ''}
-				<span class="text-base font-medium leading-tight text-white">{config.description}</span>
-			{/if}
-		</div>
-		<div class="m-5 flex flex-row justify-start items-stretch space-x-5 h-52">
-			<div class="w-16" style={`background: ${gradient};`} />
-			<div class="flex flex-col justify-between">
-				{#each config.labels as label}
-					<span class="text-lg font-medium text-black">{label}</span>
-				{/each}
+<div class="color-scale-content absolute bottom-0 right-0 z-20 w-72 h-[500px] overflow-hidden">
+	{#if config}
+		<button class="color-scale-button absolute bottom-10 right-10 z-20"
+						on:click={toggleColorButton}
+						on:mouseenter={() => (isColorButtonOpen = true)}
+						on:mouseleave={() => (isColorButtonOpen = false)}
+		>
+			<img src="{base}/icons/color_scale_icon.svg" alt="MENU" class="h-8" />
+		</button>
+
+		<div
+			class="color-scale absolute z-10 bottom-28 right-10 bg-white border border-gray-200 rounded-lg shadow w-56 flex flex-col justify-center items-start"
+			class:is-open={isColorButtonOpen}
+		>
+			<div class="rounded-t-lg bg-blue-600 w-full p-5 flex flex-col">
+				<span class="text-lg font-medium leading-tight text-white pb-2">{config.label}</span>
+				{#if config.description !== ''}
+					<span class="text-base font-medium leading-tight text-white">{config.description}</span>
+				{/if}
+			</div>
+			<div class="m-5 flex flex-row justify-start items-stretch space-x-5 h-52">
+				<div class="w-16" style={`background: ${gradient};`} />
+				<div class="flex flex-col justify-between">
+					{#each config.labels as label}
+						<span class="text-lg font-medium text-black">{label}</span>
+					{/each}
+				</div>
 			</div>
 		</div>
-	</div>
-{/if}
+	{/if}
+</div>

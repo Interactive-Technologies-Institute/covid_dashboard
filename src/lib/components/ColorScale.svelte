@@ -39,6 +39,15 @@
         }
     }*/
 
+
+    .color-scale-content {
+        z-index: -10;
+    }
+
+    .color-scale-content.color-scale-open {
+        z-index: 10;
+    }
+
     .color-scale {
         transition: transform 0.6s ease-in-out;
         transform: translateX(1000px);
@@ -68,16 +77,8 @@
     }
 </style>
 
-<div class="color-scale-content absolute bottom-0 right-0 z-20 w-72 h-[500px] overflow-hidden">
-	{#if config}
-		<button class="color-scale-button absolute bottom-10 right-10 z-20"
-						on:click={toggleColorButton}
-						on:mouseenter={() => (isColorButtonOpen = true)}
-						on:mouseleave={() => (isColorButtonOpen = false)}
-		>
-			<img src="{base}/icons/color_scale_icon.svg" alt="MENU" class="h-8" />
-		</button>
-
+{#if config}
+	<div class="color-scale-content absolute bottom-0 right-0 z-20 w-72 h-[500px] overflow-hidden" class:color-scale-open={isColorButtonOpen}>
 		<div
 			class="color-scale absolute z-10 bottom-28 right-10 bg-white border border-gray-200 rounded-lg shadow w-56 flex flex-col justify-center items-start"
 			class:is-open={isColorButtonOpen}
@@ -97,5 +98,12 @@
 				</div>
 			</div>
 		</div>
-	{/if}
-</div>
+	</div>
+	<button class="color-scale-button absolute bottom-10 right-10 z-20"
+					on:click={toggleColorButton}
+					on:mouseenter={() => (isColorButtonOpen = true)}
+					on:mouseleave={() => (isColorButtonOpen = false)}
+	>
+		<img src="{base}/icons/color_scale_icon.svg" alt="MENU" class="h-8" />
+	</button>
+{/if}

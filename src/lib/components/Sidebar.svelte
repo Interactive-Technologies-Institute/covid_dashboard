@@ -25,37 +25,6 @@
 	let isOpen= isLargeScreen;
 </script>
 
-<div class="content absolute top-0 left-0 z-30 w-1/4 min-h-screen">
-	<button class="menu-button absolute top-5 left-5 z-20"
-					on:click={() => (isOpen = !isOpen)}
-					class:open={isOpen}
-	>
-		{#if isOpen}
-			<!-- Cross icon when menu is open -->
-			<img src="{base}/icons/close.svg" alt="CLOSE" class="h-8" />
-		{:else}
-			<!-- Menu icon when menu is closed -->
-			<img src="{base}/icons/menu.svg" alt="MENU" class="h-8" />
-		{/if}
-	</button>
-
-	<div class="sidebar absolute z-10 top-0 left-0 pt-24 pl-5 bg-gray-600 min-h-screen self-center" style="width: 420px" class:is-open={isOpen}>
-		<div class="w-96 flex flex-col space-y-8 center">
-			{#if !isTrad}
-				<TypeSelector bind:value={type} />
-			{/if}
-			<Slider bind:value={opacity} />
-			<div class="flex flex-col space-y-1">
-				<Toggle label="ACES" bind:value={distritos} />
-				<Toggle label="Concelhos" bind:value={concelhos} />
-				<Toggle label="Freguesias" bind:value={freguesias} />
-			</div>
-			<LineChart minDate={data.minDate} maxDate={data.maxDate} {date} data={chartData} />
-			<LinesChart minDate={data.minDate} maxDate={data.maxDate} {date} data={chart2Data} />
-		</div>
-	</div>
-</div>
-
 <style>
     .sidebar {
         transition: transform 0.6s ease-in-out;
@@ -63,7 +32,15 @@
     }
     .sidebar.is-open {
         transform: translateX(0);
-		}
+    }
+
+    .content.sidebar-open{
+        z-index: 10;
+    }
+
+    .content{
+        z-index: -10;
+    }
 
     .menu-button {
         background-color: #ffffff;
@@ -85,10 +62,42 @@
         margin: 0 auto; /* Center the image inside the button */
     }
 
-		@media (max-width: 640px) {
+    @media (max-width: 640px) {
 
     }
 </style>
+
+<div class="content absolute top-0 left-0 z-30 w-1/4 min-h-screen" class:sidebar-open={isOpen}>
+	<div class="sidebar absolute z-10 top-0 left-0 pt-24 pl-5 bg-gray-600 min-h-screen self-center" style="width: 420px" class:is-open={isOpen}>
+		<div class="w-96 flex flex-col space-y-8 center">
+			{#if !isTrad}
+				<TypeSelector bind:value={type} />
+			{/if}
+			<Slider bind:value={opacity} />
+			<div class="flex flex-col space-y-1">
+				<Toggle label="ACES" bind:value={distritos} />
+				<Toggle label="Concelhos" bind:value={concelhos} />
+				<Toggle label="Freguesias" bind:value={freguesias} />
+			</div>
+			<LineChart minDate={data.minDate} maxDate={data.maxDate} {date} data={chartData} />
+			<LinesChart minDate={data.minDate} maxDate={data.maxDate} {date} data={chart2Data} />
+		</div>
+	</div>
+</div>
+<button class="menu-button absolute top-5 left-5 z-20"
+				on:click={() => (isOpen = !isOpen)}
+				class:open={isOpen}
+>
+	{#if isOpen}
+		<!-- Cross icon when menu is open -->
+		<img src="{base}/icons/close.svg" alt="CLOSE" class="h-8" />
+	{:else}
+		<!-- Menu icon when menu is closed -->
+		<img src="{base}/icons/menu.svg" alt="MENU" class="h-8" />
+	{/if}
+</button>
+
+
 
 
 

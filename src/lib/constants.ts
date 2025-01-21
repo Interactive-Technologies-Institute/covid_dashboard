@@ -33,7 +33,7 @@ export const configs: MapConfigs = {
 		stops: [
 			{
 				value: 1000,
-				color: '#FF9933'
+				color: '#000080'
 			},
 			{
 				value: 500,
@@ -52,7 +52,7 @@ export const configs: MapConfigs = {
 		stops: [
 			{
 				value: 1000,
-				color: '#FF9933'
+				color: '#000080'
 			},
 			{
 				value: 500,
@@ -71,7 +71,7 @@ export const configs: MapConfigs = {
 		stops: [
 			{
 				value: 1000,
-				color: '#FF9933'
+				color: '#000080'
 			},
 			{
 				value: 500,

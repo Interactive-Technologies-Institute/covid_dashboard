@@ -4,8 +4,6 @@
 	import DateSelector from '$lib/components/DateSelector.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import InfoCard from '$lib/components/InfoCard.svelte';
-	import LineChart from '$lib/components/LineChart.svelte';
-	import LinesChart from '$lib/components/LinesChart.svelte';
 	import BorderLayer from '$lib/components/Map/BorderLayer.svelte';
 	import Map from '$lib/components/Map/Map.svelte';
 	import PixelLayer from '$lib/components/Map/PixelLayer.svelte';
@@ -71,7 +69,7 @@
 </script>
 
 <div class="flex flex-col min-h-screen w-screen">
-	<div class="relative flex-grow h-screen flex">
+	<div class="relative grow">
 		<Map>
 			{#if isTrad}
 				<TradLayer

@@ -33,9 +33,8 @@
             width: 30rem;
         }
     }
-    @media (max-width: 640px) {
+    @media (max-width: 675px) {
         #slider {
-						bottom: 2rem;
             width: 23rem;
 
         }
@@ -48,10 +47,15 @@
 						font-size: 1rem;
 				}
     }
+		@media (max-width: 500px) {
+				#slider {
+						bottom: 7rem;
+        }
+		}
 </style>
 
 <div
-	id="slider" class="absolute z-10 bottom-2 left-0 right-0 mx-auto w-[42rem] bg-white border border-gray-200 rounded-lg shadow-sm flex flex-col justify-center items-center space-y-4 p-5"
+	id="slider" class="absolute z-10 bottom-24 left-0 right-0 mx-auto w-[42rem] bg-white border border-gray-200 rounded-lg shadow-sm flex flex-col justify-center items-center space-y-4 p-5"
 >
 	<div class="flex flex-row space-x-4 justify-center items-center">
 		<button

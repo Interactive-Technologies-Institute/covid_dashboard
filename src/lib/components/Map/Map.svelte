@@ -36,7 +36,18 @@
 	}
 </script>
 
-<div style="height: 100%; width: 100%;" use:initialize>
+<style>
+    :global(.mapboxgl-ctrl-top-left) {
+        float: none !important;
+        position: absolute !important;
+        margin: 0 auto !important;
+        display: block !important;
+        transform: translate(-50%, 0) !important;
+        left: 50% !important;
+    }
+</style>
+
+<div style="height: 100vh; width: 100%;" use:initialize>
 	{#if map}
 		<slot />
 	{/if}

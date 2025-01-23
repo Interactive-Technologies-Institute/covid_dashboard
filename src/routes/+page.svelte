@@ -112,19 +112,19 @@
 			/>
 			<PoisLayer
 			    id="hospitais"
-				url={base + '/data/hospitais.json'}
+				url={base + '/data/hospitals.json'}
 				visibility={hospitais}
 				icon="hospital"
 			/>
 			<PoisLayer
 			    id="escolas"
-				url={base + '/data/escolas.json'}
+				url={base + '/data/schools.json'}
 				visibility={escolas}
 				icon="college"
 			/>
 			<PoisLayer
 			    id="casasDeRepouso"
-				url={base + '/data/casas-de-repouso.json'}
+				url={base + '/data/nursing-homes.json'}
 				visibility={casasDeRepouso}
 				icon="lodging"
 			/>
@@ -146,7 +146,7 @@
 				<div class="flex flex-col space-y-1">
 					<Toggle label="Hospitais" bind:value={hospitais} />
 					<Toggle label="Escolas" bind:value={escolas} />
-					<Toggle label="Casas de repouso" bind:value={casasDeRepouso} />
+					<Toggle label="Lares De Idosos" bind:value={casasDeRepouso} />
 				</div>
 			</div>
 			<LineChart minDate={data.minDate} maxDate={data.maxDate} {date} data={chartData} />

@@ -144,9 +144,9 @@
 					<Toggle label="Freguesias" bind:value={freguesias} />
 				</div>
 				<div class="flex flex-col space-y-1">
-					<Toggle label="Hospitais" bind:value={hospitais} />
-					<Toggle label="Escolas" bind:value={escolas} />
-					<Toggle label="Lares De Idosos" bind:value={casasDeRepouso} />
+					<Toggle label="Saúde" bind:value={hospitais} />
+					<Toggle label="Ensino" bind:value={escolas} />
+					<Toggle label="Social" bind:value={casasDeRepouso} />
 				</div>
 			</div>
 			<LineChart minDate={data.minDate} maxDate={data.maxDate} {date} data={chartData} />

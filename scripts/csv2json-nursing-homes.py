@@ -1,29 +1,35 @@
 import csv
 import json
 
+with open('./static/data/openstrmap_equipamentos.csv', 'r', encoding="utf-8") as csvfile, \
+     open('./static/data/nursing-homes.json', 'w', encoding="utf-8") as jsonfile:
+    
+    output_json = {"type": "FeatureCollection", "features": []}
+    
+    reader = csv.DictReader(csvfile, delimiter=';')
 
-csvfile = open('./static/data/portugal_locations.csv', 'r', encoding="utf-8")
-jsonfile = open('./static/data/nursing-homes.json', 'w', encoding="utf-8")
-
-fields=("Type","Name","lat","lon")
-
-output_json = { "type": "FeatureCollection", "features": [] }
-
-reader = csv.DictReader( csvfile, fields)
-
-for row in reader:
-    if row['Type'].startswith("Nursing_home"):
-        inner_json = {
-            "type": "feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [row["lon"], row["lat"]]
-            },
-            "properties": {
-                "title": row["Name"]
+    for row in reader:
+        try:
+            lon = float(row["lon"].replace(',', '.'))
+            lat = float(row["lat"].replace(',', '.'))
+        except ValueError:
+            # Ignorar linhas com coordenadas inválidas
+            continue
+        
+        equip_value = row.get('Equip')
+        name_value = row.get('Name')  
+        
+        if equip_value and "Sociais" in equip_value and name_value.strip() and name_value != "NA":
+            inner_json = {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [lon, lat]
+                },
+                "properties": {
+                    "title": name_value
+                }
             }
-        }
-        output_json["features"].append(inner_json)
-
-json.dump(output_json, jsonfile)
-jsonfile.write('\n')
+            output_json["features"].append(inner_json)
+    
+    json.dump(output_json, jsonfile, ensure_ascii=False, indent=4)

@@ -35,7 +35,7 @@
     }
 
     .content.sidebar-open{
-        z-index: 10;
+        z-index: 20;
     }
 
     .content{

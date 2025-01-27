@@ -5,7 +5,8 @@
 		LineElement,
 		LinearScale,
 		PointElement,
-		TimeScale
+		TimeScale,
+		Title
 	} from 'chart.js';
 	import 'chartjs-adapter-date-fns';
 	import annotationPlugin from 'chartjs-plugin-annotation';
@@ -156,6 +157,10 @@
 				}
 			},
 			plugins: {
+				title: {
+					display: true,
+					text: 'Custom Chart Title', //TODO
+				},
 				legend: {
 					display: false
 				},
@@ -171,6 +176,7 @@
 
 	function initialize(node: HTMLCanvasElement) {
 		ChartJS.register(
+			Title,
 			LineController,
 			LineElement,
 			PointElement,

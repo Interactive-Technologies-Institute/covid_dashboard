@@ -58,22 +58,23 @@
 
     .color-scale-button {
         background-color: #ffffff;
-        border: 2px solid #2563eb; /* Blue border */
-        border-radius: 100%; /* Rounded corners */
-        padding: 10px; /* Add padding around the icon */
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for depth */
-        cursor: pointer; /* Change cursor to pointer on hover */
-        transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Add hover effect */
+        border: 2px solid #2563eb;
+        border-radius: 100%;
+        padding: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     .color-scale-button:hover {
-        background-color: #e0e0e0; /* Slightly darker background on hover */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+        background-color: #e0e0e0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 
     .color-scale-button img {
         display: block;
-        margin: 0 auto; /* Center the image inside the button */
+        margin: 0 auto;
+        height: 1rem;
     }
 </style>
 
@@ -99,9 +100,9 @@
 			</div>
 		</div>
 	</div>
-	<button class="color-scale-button absolute bottom-10 right-10 z-20"
+	<button class="color-scale-button absolute bottom-24 right-10 z-20"
 					on:click={toggleColorButton}
 	>
-		<img src="{base}/icons/color_scale_icon.svg" alt="MENU" class="h-8" />
+		<img src="{base}/icons/color_scale_icon.svg" alt="MENU" />
 	</button>
 {/if}

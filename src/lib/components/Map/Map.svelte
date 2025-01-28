@@ -47,7 +47,7 @@
     }
 </style>
 
-<div style="height: 100vh; width: 100%;" use:initialize>
+<div style="height: 100%; width: 100%;" use:initialize>
 	{#if map}
 		<slot />
 	{/if}

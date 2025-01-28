@@ -69,7 +69,7 @@
 </script>
 
 <div class="flex flex-col min-h-screen w-screen">
-	<div class="relative grow">
+	<div class="relative grow h-screen">
 		<Map>
 			{#if isTrad}
 				<TradLayer

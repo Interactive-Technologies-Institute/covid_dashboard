@@ -26,16 +26,19 @@
     @media (max-width: 1250px) {
         #slider {
             width: 42rem;
+						bottom: 5rem;
         }
     }
     @media (max-width: 920px) {
         #slider {
             width: 30rem;
+						bottom: 5rem;
         }
     }
     @media (max-width: 675px) {
         #slider {
             width: 23rem;
+						bottom: 4.5rem;
 
         }
 				svg {
@@ -49,7 +52,7 @@
     }
 		@media (max-width: 500px) {
 				#slider {
-						bottom: 7rem;
+						bottom: 8.5rem;
         }
 		}
 </style>

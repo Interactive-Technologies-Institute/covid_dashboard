@@ -11,6 +11,8 @@
 	import SearchField from '$lib/components/SearchField.svelte';
 	import { DataType, configs, type ChartData, type MapConfig } from '$lib/constants';
 	import Sidebar from '$lib/components/Sidebar.svelte';
+	import ConcelhoBorderLayer from '$lib/components/Map/ConcelhoBorderLayer.svelte';
+	import HelpButton from '$lib/components/HelpButton.svelte';
 	import PoisLayer from '$lib/components/Map/PoisLayer.svelte';
 
 	export let data;
@@ -61,6 +63,8 @@
 	let hACES: string | null = null;
 	let hConcelho: string | null = null;
 	let hFreguesia: string | null = null;
+
+	let hoveredConcelho: number | null = null;
 
 	$: dateIndex = dateToIndex(date);
 	$: pixelsData = getPixelData(type);
@@ -126,6 +130,11 @@
 			/>
 
 
+			<ConcelhoBorderLayer
+				id="hovered-concelho"
+				url={base + '/data/concelhos.json'}
+				{hoveredConcelho}
+			/>
 			<SearchField />
 		</Map>
 		<Sidebar
@@ -136,9 +145,11 @@
 			bind:freguesias={freguesias}
 			bind:type={type}
 			bind:data={data}
+			bind:hoveredConcelho={hoveredConcelho}
 			chartData={chartData}
 			chart2Data={chart2Data}
 		/>
+		<HelpButton/>
 		<ColorScale config={getConfig(type)} />
 		<InfoCard
 			aces={hACES}

@@ -20,6 +20,8 @@
 	export let chart2Data: ChartData[] | null;
 	let date = data.minDate;
 
+	export let hoveredConcelho: number | null;
+
 	const isLargeScreen = window.innerWidth > 1000;
 
 	let isOpen= isLargeScreen;
@@ -76,7 +78,7 @@
 			<button class="menu-button absolute top-5 left-5 z-20"
 							on:click={() => (isOpen = !isOpen)}
 							class:open={isOpen}>
-				<img src="{base}/icons/close.svg" alt="CLOSE" />
+				<img src="{base}/icons/menu.svg" alt="CLOSE" />
 			</button>
 			<div class="w-96 flex flex-col space-y-8 center">
 				{#if !isTrad}
@@ -89,7 +91,12 @@
 					<Toggle label="Freguesias" bind:value={freguesias} />
 				</div>
 				<LineChart minDate={data.minDate} maxDate={data.maxDate} {date} data={chartData} />
-				<LinesChart minDate={data.minDate} maxDate={data.maxDate} {date} data={chart2Data} />
+				<LinesChart
+					minDate={data.minDate}
+					maxDate={data.maxDate}
+					{date}
+					data={chart2Data}
+					bind:hoveredConcelho={hoveredConcelho} />
 			</div>
 		</div>
 	</div>

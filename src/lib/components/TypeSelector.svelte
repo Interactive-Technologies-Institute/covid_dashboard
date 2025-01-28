@@ -4,14 +4,6 @@
 	export let value: DataType;
 </script>
 
-<style>
-    @media (max-height: 600px) {
-        .sidebar {
-            overflow-y: scroll;
-        }
-    }
-</style>
-
 <div class="rounded-md shadow-sm flex flex-row items-stretch" role="group">
 	<label class="cursor-pointer basis-1/3">
 		<input type="radio" bind:group={value} value={DataType.INCIDENCE} class="sr-only peer" />

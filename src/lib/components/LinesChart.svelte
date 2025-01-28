@@ -14,10 +14,13 @@
 	import annotationPlugin from 'chartjs-plugin-annotation';
 
 	let chart: ChartJS | undefined;
+	let initialized = false;
+
 	export let date: Date;
 	export let minDate: Date;
 	export let maxDate: Date;
 	export let data: ChartData[] | null = null;
+	export let hoveredConcelho: number | null = null;
 
 	const getDates = (): number[] => {
 		let dateArray: number[] = [];
@@ -122,6 +125,7 @@
 						hoverBorderColor: 'rgb(37, 99, 235)',
 						pointRadius: 0,
 						pointHoverRadius: 0,
+						id: d.id,
 						label: d.label,
 						data: d.data
 					};
@@ -151,6 +155,7 @@
 				}) ?? []
 		},
 		options: {
+			events: ['mousemove', 'mouseout', 'click', 'touchstart', 'touchmove'],
 			responsive: true,
 			scales: {
 				x: {
@@ -204,6 +209,12 @@
 			interaction: {
 				mode: 'dataset' as const,
 				intersect: false
+			},
+			onHover: (event, chartElement) => {
+				if (chartElement && chartElement.length) {
+					const hoveredDataset = chartElement[0].datasetIndex;
+					hoveredConcelho = config.data.datasets[hoveredDataset].id;
+				}
 			}
 		}
 	};
@@ -221,15 +232,23 @@
 		);
 		const ctx = node.getContext('2d') as CanvasRenderingContext2D;
 		chart = new ChartJS(ctx, config);
+		initialized = true;
 		return {
 			destroy() {
 				chart?.destroy();
 			}
 		};
 	}
+
+	function handleMouseLeave() {
+		if (initialized) {
+			hoveredConcelho = null;
+		}
+	}
 </script>
 
-<div class="bg-white border border-gray-200 rounded-lg shadow-sm p-4">
+<div class="bg-white border border-gray-200 rounded-lg shadow-sm p-4"
+		 on:mouseleave={handleMouseLeave}>
 	{#if data}
 		<canvas use:initialize />
 	{:else}

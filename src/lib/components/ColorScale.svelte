@@ -14,32 +14,6 @@
 </script>
 
 <style>
-		/*
-    @media (max-width: 1250px) {
-        .color-scale {
-            width: 12rem;
-        }
-    }
-    @media (max-width: 920px) {
-        .color-scale {
-            width: 10rem;
-            height: 10rem;
-        }
-    }
-    @media (max-width: 640px) {
-        .color-scale {
-            width: 6rem;
-            height: 8rem;
-        }
-
-        .color-scale div span {
-            width: 6rem;
-            height: 8rem;
-
-        }
-    }*/
-
-
     .color-scale-content {
         z-index: -10;
     }
@@ -81,7 +55,7 @@
 {#if config}
 	<div class="color-scale-content absolute bottom-0 right-0 z-20 w-72 h-[500px] overflow-hidden" class:color-scale-open={isColorButtonOpen}>
 		<div
-			class="color-scale absolute z-10 bottom-28 right-10 bg-white border border-gray-200 rounded-lg shadow w-56 flex flex-col justify-center items-start"
+			class="color-scale absolute z-10 bottom-28 right-16 bg-white border border-gray-200 rounded-lg shadow w-56 flex flex-col justify-center items-start"
 			class:is-open={isColorButtonOpen}
 		>
 			<div class="rounded-t-lg bg-blue-600 w-full p-5 flex flex-col">
@@ -100,7 +74,7 @@
 			</div>
 		</div>
 	</div>
-	<button class="color-scale-button absolute bottom-24 right-10 z-20"
+	<button class="color-scale-button absolute bottom-28 right-16 z-20"
 					on:click={toggleColorButton}
 	>
 		<img src="{base}/icons/color_scale_icon.svg" alt="MENU" />

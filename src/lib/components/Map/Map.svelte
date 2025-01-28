@@ -45,6 +45,87 @@
         transform: translate(-50%, 0) !important;
         left: 50% !important;
     }
+
+    :global(.mapboxgl-ctrl-bottom-left) {
+        float: none !important;
+        position: absolute !important;
+        bottom: 5rem !important;
+    }
+
+    :global(.mapboxgl-ctrl-bottom-right) {
+        float: none !important;
+        position: absolute !important;
+        bottom: 5rem !important;
+    }
+
+    @media (max-width: 1250px) {
+        :global(.mapboxgl-ctrl-top-left) {
+            float: none !important;
+            position: absolute !important;
+            margin: 0 auto !important;
+            display: block !important;
+            transform: translate(-50%, 0) !important;
+            left: 50% !important;
+        }
+
+        :global(.mapboxgl-ctrl-bottom-left) {
+            float: none !important;
+            position: absolute !important;
+            bottom: 4rem !important;
+        }
+
+        :global(.mapboxgl-ctrl-bottom-right) {
+            float: none !important;
+            position: absolute !important;
+            bottom: 4rem !important;
+        }
+    }
+
+    @media (max-width: 675px) {
+        :global(.mapboxgl-ctrl-top-left) {
+            float: none !important;
+            position: absolute !important;
+            margin: 0 auto !important;
+            display: block !important;
+            transform: translate(-50%, 0) !important;
+            left: 50% !important;
+        }
+
+        :global(.mapboxgl-ctrl-bottom-left) {
+            float: none !important;
+            position: absolute !important;
+            bottom: 3.5rem !important;
+        }
+
+        :global(.mapboxgl-ctrl-bottom-right) {
+            float: none !important;
+            position: absolute !important;
+            bottom: 3.5rem !important;
+        }
+    }
+
+    @media (max-width: 510px) {
+        :global(.mapboxgl-ctrl-top-left) {
+            float: none !important;
+            position: absolute !important;
+            margin: 0 auto !important;
+            display: block !important;
+            transform: translate(-50%, 0) !important;
+            left: 50% !important;
+        }
+
+        :global(.mapboxgl-ctrl-bottom-left) {
+            float: none !important;
+            position: absolute !important;
+            bottom: 6.5rem !important;
+        }
+
+        :global(.mapboxgl-ctrl-bottom-right) {
+            float: none !important;
+            position: absolute !important;
+            bottom: 6.5rem !important;
+        }
+    }
 </style>
 
 <div style="height: 100%; width: 100%;" use:initialize>

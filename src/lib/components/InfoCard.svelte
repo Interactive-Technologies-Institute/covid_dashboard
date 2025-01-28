@@ -1,12 +1,31 @@
 <script lang="ts">
+	import { onMount } from "svelte";
+
 	export let aces: string | null;
 	export let concelho: string | null;
+	export let concelho_id: string | null;
 	export let freguesia: string | null;
 	export let value: number | [number, number, number] | null;
 	export let label: string;
 	export let description: string;
 
-	$: hasData = value !== null && aces !== null && concelho !== null && freguesia !== null;
+	export let url: string;
+	export let date: Date;
+
+	$: hasData = value !== null && aces !== null && concelho !== null && freguesia !== null && concelho_id !== null;
+
+
+    let casos_covid = fetch(url).then((dados) => dados.json());
+
+	function taxa_covid(_id: string | null, casos_json: any) {
+		let id =  _id!;
+
+		let date_text = date.toLocaleDateString(); // todo
+
+		if (id in casos_json && date_text in casos_json[id]) {
+			return [id, date_text, casos_json[id][date_text]];
+		}
+	}
 </script>
 
 <div
@@ -27,8 +46,17 @@
 			</div>
 		{/if}
 		<p>{aces}</p>
-		<p>{concelho}</p>
+		<p>
+			{#await casos_covid then casos_json}
+		    	{#if concelho_id !== null}
+					{taxa_covid(concelho_id, casos_json)}
+				{/if}
+			{/await}
+
+			{concelho}
+		</p>
 		<p>{freguesia}</p>
+		
 	{:else}
 		<p class="text-xl font-medium text-gray-700">
 			PASSE O CURSOR SOBRE O MAPA PARA SABER O VALOR NAQUELA ZONA

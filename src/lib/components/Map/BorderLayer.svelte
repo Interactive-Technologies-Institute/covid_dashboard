@@ -10,6 +10,7 @@
 	export let selectable: boolean = false;
 	export let selectedId: number | null = null;
 	export let hoveredLabel: string | null = null;
+	export let hoveredId: string | null = null;
 
 	let initialized: boolean = false;
 	let source: mapboxgl.AnySourceData;
@@ -32,12 +33,19 @@
 
 	function onMouseMove(e: mapboxgl.EventData) {
 		if (e.features.length > 0) {
+
 			hoveredLabel = e.features[0].properties.label;
+			hoveredId = e.features[0].id;
+			if (id == "concelhos") {
+				console.log(e.features);
+				console.log("setando id", hoveredId);
+			}
 		}
 	}
 
 	function onMouseLeave(e: mapboxgl.EventData) {
 		hoveredLabel = null;
+		hoveredId = null;
 	}
 
 	function initialize() {

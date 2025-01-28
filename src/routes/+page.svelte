@@ -64,6 +64,7 @@
 	let hValue: number | null = null;
 	let hACES: string | null = null;
 	let hConcelho: string | null = null;
+	let hConcelhoId: string | null = null;
 	let hFreguesia: string | null = null;
 
 	$: dateIndex = dateToIndex(date);
@@ -101,6 +102,7 @@
 				url={base + '/data/concelhos.json'}
 				visiblity={concelhos}
 				bind:hoveredLabel={hConcelho}
+				bind:hoveredId={hConcelhoId}
 			/>
 			<BorderLayer
 				id="aces"
@@ -162,10 +164,13 @@
 			<InfoCard
 				aces={hACES}
 				concelho={hConcelho}
+				concelho_id={hConcelhoId}
 				freguesia={hFreguesia}
 				value={hValue}
 				label={getConfig(type).label}
 				description={getConfig(type).description}
+				url={base + '/data/casos-covid.json'}
+				{date}
 			/>
 		</div>
 	</div>

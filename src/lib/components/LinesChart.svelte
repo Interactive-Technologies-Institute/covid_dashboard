@@ -180,7 +180,11 @@
 			plugins: {
 				title: {
 					display: true,
-					text: 'Custom Chart Title', //TODO
+					text: 'Taxa incidência cumulativa por concelho',
+					padding: {
+						top: 0,
+						bottom: 10
+					}
 				},
 				legend: {
 					display: false

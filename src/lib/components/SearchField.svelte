@@ -5,7 +5,7 @@
     import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
     import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
-    
+
     let geocoder: any;
 
     const { getMap } = getContext<MBMapContext>(key);
@@ -38,18 +38,18 @@
       }
 
       const locations = await (await fetch("data/portugal_locations_output.json")).json();
-     
+
       const geocoder = new MapboxGeocoder({
-           accessToken: mapboxgl.accessToken, 
-           mapboxgl: mapboxgl, 
-           placeholder: 'Search for places in Portugal', 
+           accessToken: mapboxgl.accessToken,
+           mapboxgl: mapboxgl,
+           placeholder: 'Pesquisa localidade em Portugal',
            bbox: [-9.5, 36.8, -6.2, 42.2],
-           countries: 'PT', 
+           countries: 'PT',
            localGeocoder: (query) => busca(query, locations)!,
       });
 
       map!.addControl(geocoder, 'top-left');
-            
+
 
     }
 

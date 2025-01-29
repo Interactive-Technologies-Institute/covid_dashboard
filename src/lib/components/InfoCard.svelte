@@ -9,8 +9,47 @@
 	$: hasData = value !== null && aces !== null && concelho !== null && freguesia !== null;
 </script>
 
+<style>
+    @media (max-width: 675px) {
+        .infocard-content{
+            padding: 10px;
+        }
+
+        .text-info{
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .infocard-content{
+            right: 50%;
+            transform: translate(50%, 0);
+            padding: 10px;
+        }
+
+        .text-info{
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .infocard-content{
+            right: 50%;
+            transform: translate(50%, 0);
+            padding: 10px;
+						top: 115px;
+						width: 300px;
+        }
+
+        .text-info{
+            font-size: 1rem;
+        }
+    }
+</style>
+
+
 <div
-	class="bg-white border border-gray-200 rounded-lg shadow-sm w-96 p-5 flex flex-col justify-center items-stretch font-medium text-black text-center"
+	class="infocard-content absolute z-10 top-16 right-5 bg-white border border-gray-200 rounded-lg shadow-sm w-96 p-5 flex flex-col justify-center items-stretch font-medium text-black text-center"
 >
 	{#if hasData}
 		<p class="text-xl">{label}</p>
@@ -30,7 +69,7 @@
 		<p>{concelho}</p>
 		<p>{freguesia}</p>
 	{:else}
-		<p class="text-xl font-medium text-gray-700">
+		<p class="text-info text-xl font-medium text-gray-700">
 			PASSE O CURSOR SOBRE O MAPA PARA SABER O VALOR NAQUELA ZONA
 		</p>
 	{/if}

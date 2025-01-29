@@ -14,6 +14,9 @@
 	export let distritos: boolean;
 	export let concelhos: boolean;
 	export let freguesias: boolean;
+	export let hospitais: boolean;
+	export let escolas: boolean;
+	export let casasDeRepouso: boolean;
 	export let type: DataType;
 
 	export let chartData: number[];
@@ -85,10 +88,17 @@
 					<TypeSelector bind:value={type} />
 				{/if}
 				<Slider bind:value={opacity} />
-				<div class="flex flex-col space-y-1">
-					<Toggle label="ACES" bind:value={distritos} />
-					<Toggle label="Concelhos" bind:value={concelhos} />
-					<Toggle label="Freguesias" bind:value={freguesias} />
+				<div class="flex flex-row justify-start space-x-10">
+					<div class="flex flex-col space-y-1 pl-4">
+						<Toggle label="ACES" bind:value={distritos} />
+						<Toggle label="Concelhos" bind:value={concelhos} />
+						<Toggle label="Freguesias" bind:value={freguesias} />
+					</div>
+					<div class="flex flex-col space-y-1">
+						<Toggle label="Saúde" bind:value={hospitais} />
+						<Toggle label="Ensino" bind:value={escolas} />
+						<Toggle label="Social" bind:value={casasDeRepouso} />
+					</div>
 				</div>
 				<LineChart minDate={data.minDate} maxDate={data.maxDate} {date} data={chartData} />
 				<LinesChart

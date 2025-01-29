@@ -143,6 +143,9 @@
 			bind:distritos={distritos}
 			bind:concelhos={concelhos}
 			bind:freguesias={freguesias}
+			bind:hospitais={hospitais}
+			bind:escolas={escolas}
+			bind:casasDeRepouso={casasDeRepouso}
 			bind:type={type}
 			bind:data={data}
 			bind:hoveredConcelho={hoveredConcelho}

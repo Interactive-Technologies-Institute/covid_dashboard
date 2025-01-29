@@ -118,7 +118,7 @@
 			</div>
 		</div>
 	</div>
-	<button class="menu-button absolute top-5 left-5 z-20"
+	<button class="menu-button absolute top-[10px] left-[10px] z-20"
 					on:click={() => (isOpen = !isOpen)}
 					class:open={isOpen}
 	>

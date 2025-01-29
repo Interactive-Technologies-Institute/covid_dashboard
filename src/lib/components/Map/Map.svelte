@@ -40,7 +40,10 @@
 		:global(.mapboxgl-ctrl-geocoder) {
 				width: 300px !important;
 				height: 40px !important;
+				top: 10px !important;
 				font-size: 15px !important;
+				margin-left: 0 !important;
+				margin-top: 0 !important;
 				display: flex !important;
 				justify-content: center !important;
 		}
@@ -57,6 +60,7 @@
         display: block !important;
         transform: translate(-50%, 0) !important;
         left: 50% !important;
+				z-index: 30 !important;
     }
 
     :global(.mapboxgl-ctrl-bottom-left) {
@@ -119,6 +123,17 @@
             float: none !important;
             position: absolute !important;
             bottom: 6.5rem !important;
+        }
+    }
+    @media (max-width: 400px) {
+        :global(.mapboxgl-ctrl-top-left) {
+            float: none !important;
+            position: absolute !important;
+            margin: 0 auto !important;
+            display: block !important;
+            transform: translate(-50%, 0) !important;
+            left: 50% !important;
+						top: 50px !important;
         }
     }
 </style>

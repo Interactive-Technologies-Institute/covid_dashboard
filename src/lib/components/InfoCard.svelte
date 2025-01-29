@@ -3,7 +3,7 @@
 
 	export let aces: string | null;
 	export let concelho: string | null;
-	export let concelho_id: string | null;
+	export let concelhoId: string | null;
 	export let freguesia: string | null;
 	export let value: number | [number, number, number] | null;
 	export let label: string;
@@ -12,18 +12,17 @@
 	export let url: string;
 	export let date: Date;
 
-	$: hasData = value !== null && aces !== null && concelho !== null && freguesia !== null && concelho_id !== null;
-
+	$: hasData = value !== null && aces !== null && concelho !== null && freguesia !== null && concelhoId !== null;
 
     let casos_covid = fetch(url).then((dados) => dados.json());
 
 	function taxa_covid(_id: string | null, casos_json: any) {
 		let id =  _id!;
 
-		let date_text = date.toLocaleDateString(); // todo
+		let date_text = date.toLocaleDateString('pt');
 
 		if (id in casos_json && date_text in casos_json[id]) {
-			return [id, date_text, casos_json[id][date_text]];
+			return casos_json[id][date_text];
 		}
 	}
 </script>
@@ -48,8 +47,8 @@
 		<p>{aces}</p>
 		<p>
 			{#await casos_covid then casos_json}
-		    	{#if concelho_id !== null}
-					{taxa_covid(concelho_id, casos_json)}
+		    	{#if taxa_covid(concelhoId, casos_json)}
+					(taxa diária: {taxa_covid(concelhoId, casos_json)})
 				{/if}
 			{/await}
 

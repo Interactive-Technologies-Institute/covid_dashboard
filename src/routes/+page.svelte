@@ -164,7 +164,7 @@
 			<InfoCard
 				aces={hACES}
 				concelho={hConcelho}
-				concelho_id={hConcelhoId}
+				concelhoId={hConcelhoId}
 				freguesia={hFreguesia}
 				value={hValue}
 				label={getConfig(type).label}

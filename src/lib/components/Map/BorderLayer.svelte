@@ -11,6 +11,7 @@
 	export let selectedId: number | null = null;
 	export let hoveredLabel: string | null = null;
 	export let hoveredId: string | null = null;
+	export let lineWidth: number = 1;
 
 	let initialized: boolean = false;
 	let source: mapboxgl.AnySourceData;
@@ -71,11 +72,11 @@
 			type: 'line',
 			source: id,
 			paint: {
-				'line-width': 2,
+				'line-width': lineWidth,
 				'line-color': [
 					'case',
 					['boolean', ['feature-state', 'selected'], false],
-					'#4e862f',
+					'black',
 					'transparent'
 				]
 			}

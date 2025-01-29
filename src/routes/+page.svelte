@@ -101,6 +101,8 @@
 				id="concelhos"
 				url={base + '/data/concelhos.json'}
 				visiblity={concelhos}
+				selectable={true}
+				lineWidth={2.5}
 				bind:hoveredLabel={hConcelho}
 				bind:hoveredId={hConcelhoId}
 			/>
@@ -109,6 +111,7 @@
 				url={base + '/data/aces.json'}
 				visiblity={distritos}
 				selectable={true}
+				lineWidth={4}
 				bind:selectedId={selectedACES}
 				bind:hoveredLabel={hACES}
 			/>

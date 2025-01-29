@@ -10,7 +10,7 @@
 </script>
 
 <style>
-    @media (max-width: 600px) {
+    @media (max-width: 675px) {
         .infocard-content{
             right: 50%;
             top: 145px;

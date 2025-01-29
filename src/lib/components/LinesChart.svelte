@@ -247,7 +247,15 @@
 	}
 </script>
 
-<div class="bg-white border border-gray-200 rounded-lg shadow-sm p-4"
+<style>
+    @media (max-height: 900px) {
+        .last-chart {
+            margin-bottom: 7rem;
+        }
+    }
+</style>
+
+<div class="last-chart bg-white border border-gray-200 rounded-lg shadow-sm p-4"
 		 on:mouseleave={handleMouseLeave}>
 	{#if data}
 		<canvas use:initialize />

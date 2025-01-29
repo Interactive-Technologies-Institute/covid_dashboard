@@ -37,6 +37,19 @@
 </script>
 
 <style>
+		:global(.mapboxgl-ctrl-geocoder) {
+				width: 300px !important;
+				height: 40px !important;
+				font-size: 15px !important;
+				display: flex !important;
+				justify-content: center !important;
+		}
+    :global(.mapboxgl-ctrl-geocoder--input) {
+        width: 300px !important;
+        height: 40px !important;
+        font-size: 15px !important;
+    }
+
     :global(.mapboxgl-ctrl-top-left) {
         float: none !important;
         position: absolute !important;
@@ -59,15 +72,6 @@
     }
 
     @media (max-width: 1250px) {
-        :global(.mapboxgl-ctrl-top-left) {
-            float: none !important;
-            position: absolute !important;
-            margin: 0 auto !important;
-            display: block !important;
-            transform: translate(-50%, 0) !important;
-            left: 50% !important;
-        }
-
         :global(.mapboxgl-ctrl-bottom-left) {
             float: none !important;
             position: absolute !important;
@@ -82,15 +86,6 @@
     }
 
     @media (max-width: 675px) {
-        :global(.mapboxgl-ctrl-top-left) {
-            float: none !important;
-            position: absolute !important;
-            margin: 0 auto !important;
-            display: block !important;
-            transform: translate(-50%, 0) !important;
-            left: 50% !important;
-        }
-
         :global(.mapboxgl-ctrl-bottom-left) {
             float: none !important;
             position: absolute !important;

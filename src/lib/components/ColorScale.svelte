@@ -19,7 +19,7 @@
     }
 
     .color-scale-content.color-scale-open {
-        z-index: 10;
+        z-index: 20;
     }
 
     .color-scale {
@@ -54,11 +54,14 @@
         .color-scale-button{
             bottom: 258px;
         }
+				.color-scale{
+						bottom: 298px;
+				}
     }
 </style>
 
 {#if config}
-	<div class="color-scale-content absolute bottom-0 right-0 z-20 w-[210px] h-[462px] overflow-hidden" class:color-scale-open={isColorButtonOpen}>
+	<div class="color-scale-content absolute bottom-0 right-0 z-20 w-[210px] h-[600px] overflow-hidden" class:color-scale-open={isColorButtonOpen}>
 		<div
 			class="color-scale absolute z-10 bottom-[180px] right-2 bg-white border border-gray-200 rounded-lg shadow w-[180px] flex flex-col justify-center items-start"
 			class:is-open={isColorButtonOpen}

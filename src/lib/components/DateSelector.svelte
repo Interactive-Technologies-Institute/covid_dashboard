@@ -25,13 +25,11 @@
 <style>
     @media (max-width: 1250px) {
         #slider {
-            width: 42rem;
 						bottom: 5rem;
         }
     }
     @media (max-width: 920px) {
         #slider {
-            width: 30rem;
 						bottom: 5rem;
         }
     }
@@ -50,7 +48,7 @@
 						font-size: 1rem;
 				}
     }
-		@media (max-width: 500px) {
+		@media (max-width: 510px) {
 				#slider {
 						bottom: 8.5rem;
         }
@@ -58,13 +56,13 @@
 </style>
 
 <div
-	id="slider" class="absolute z-10 bottom-24 left-0 right-0 mx-auto w-[42rem] bg-white border border-gray-200 rounded-lg shadow-sm flex flex-col justify-center items-center space-y-4 p-5"
+	id="slider" class="absolute z-10 bottom-24 left-0 right-0 mx-auto w-[30rem] bg-white border border-gray-200 rounded-lg shadow-sm flex flex-col justify-center items-center space-y-3 p-3"
 >
 	<div class="flex flex-row space-x-4 justify-center items-center">
 		<button
 			type="button"
 			on:click={() => (isPlaying = !isPlaying)}
-			class="text-blue-600 border border-blue-600 hover:bg-blue-600 hover:text-white font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center"
+			class="text-blue-600 border border-blue-600 hover:bg-blue-600 hover:text-white font-medium rounded-full text-sm p-2 text-center inline-flex items-center"
 		>
 			<svg
 				aria-hidden="true"
@@ -91,7 +89,7 @@
 					value = value - 86400000;
 				}
 			}}
-			class="text-blue-600 border border-blue-600 hover:bg-blue-600 hover:text-white font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center"
+			class="text-blue-600 border border-blue-600 hover:bg-blue-600 hover:text-white font-medium rounded-full text-sm p-2 text-center inline-flex items-center"
 		>
 			<svg
 				aria-hidden="true"
@@ -112,7 +110,7 @@
 					value = value + 86400000;
 				}
 			}}
-			class="text-blue-600 border border-blue-600 hover:bg-blue-600 hover:text-white font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center"
+			class="text-blue-600 border border-blue-600 hover:bg-blue-600 hover:text-white font-medium rounded-full text-sm p-2 text-center inline-flex items-center"
 		>
 			<svg
 				aria-hidden="true"
@@ -128,7 +126,7 @@
 		<button
 			type="button"
 			on:click={() => (value = minDate.valueOf())}
-			class="text-blue-600 border border-blue-600 hover:bg-blue-600 hover:text-white font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center"
+			class="text-blue-600 border border-blue-600 hover:bg-blue-600 hover:text-white font-medium rounded-full text-sm p-2 text-center inline-flex items-center"
 		>
 			<svg
 				aria-hidden="true"
@@ -148,6 +146,6 @@
 		step="86400000"
 		type="range"
 		bind:value
-		class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"
+		class="w-full h-1 bg-gray-700 rounded-lg appearance-none cursor-pointer"
 	/>
 </div>

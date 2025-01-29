@@ -75,7 +75,7 @@
 				'line-color': [
 					'case',
 					['boolean', ['feature-state', 'selected'], false],
-					'blue',
+					'#4e862f',
 					'transparent'
 				]
 			}

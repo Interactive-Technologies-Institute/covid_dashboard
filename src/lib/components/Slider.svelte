@@ -8,5 +8,5 @@
 	step="0.1"
 	type="range"
 	bind:value
-	class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"
+	class="w-full h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer"
 />

@@ -250,7 +250,7 @@
 <style>
     @media (max-height: 900px) {
         .last-chart {
-            margin-bottom: 7rem;
+            margin-bottom: 7rem !important;
         }
     }
 </style>

@@ -74,13 +74,13 @@
 
 {#if isOpen}
 	<div class="sidebar-open content absolute top-0 left-0 z-30 w-1/4 h-screen">
-		<div class="sidebar absolute z-10 top-0 left-0 pt-24 pl-5 bg-gray-600 h-screen self-center" style="width: 420px" class:is-open={isOpen}>
-			<button class="menu-button absolute top-5 left-5 z-20"
+		<div class="sidebar absolute z-10 top-0 left-0 pt-20 bg-gray-600 h-screen self-center" style="width: 420px" class:is-open={isOpen}>
+			<button class="menu-button absolute top-[10px] left-[10px] z-20"
 							on:click={() => (isOpen = !isOpen)}
 							class:open={isOpen}>
 				<img src="{base}/icons/menu.svg" alt="CLOSE" />
 			</button>
-			<div class="w-96 flex flex-col space-y-8 center">
+			<div class="w-96 flex flex-col space-y-8 center mx-auto">
 				{#if !isTrad}
 					<TypeSelector bind:value={type} />
 				{/if}
@@ -102,8 +102,8 @@
 	</div>
 {:else}
 	<div class="content absolute top-0 left-0 z-30 w-1/4 h-screen" class:sidebar-open={isOpen}>
-		<div class="sidebar absolute z-10 top-0 left-0 pt-24 pl-5 bg-gray-600 h-screen self-center" style="width: 420px" class:is-open={isOpen}>
-			<div class="w-96 flex flex-col space-y-8 center">
+		<div class="sidebar absolute z-10 top-0 left-0 pt-20 bg-gray-600 h-screen self-center" style="width: 420px" class:is-open={isOpen}>
+			<div class="w-96 flex flex-col space-y-8 center mx-auto">
 				{#if !isTrad}
 					<TypeSelector bind:value={type} />
 				{/if}

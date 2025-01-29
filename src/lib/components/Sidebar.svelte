@@ -10,7 +10,7 @@
 	export let data;
 
 	export let isTrad: boolean;
-	export let opacity: number = 1;
+	export let opacity = 1;
 	export let distritos: boolean;
 	export let concelhos: boolean;
 	export let freguesias: boolean;
@@ -22,7 +22,7 @@
 
 	export let hoveredConcelho: number | null;
 
-	const isLargeScreen = window.innerWidth > 1000;
+	const isLargeScreen = window.innerWidth > 1340;
 
 	let isOpen= isLargeScreen;
 </script>

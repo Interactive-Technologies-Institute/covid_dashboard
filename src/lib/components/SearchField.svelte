@@ -4,7 +4,7 @@
     import { key, mapboxgl, type MBMapContext } from './Map/mapboxgl';
     import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
     import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
-
+		import { base } from '$app/paths';
 
     let geocoder: any;
 
@@ -37,7 +37,7 @@
         return;
       }
 
-      const locations = await (await fetch("data/portugal_locations_output.json")).json();
+      const locations = await (await fetch(base + "/data/portugal_locations_output.json")).json();
 
       const geocoder = new MapboxGeocoder({
            accessToken: mapboxgl.accessToken,

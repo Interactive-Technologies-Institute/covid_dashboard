@@ -40,7 +40,7 @@
     }
 
     .content.sidebar-open{
-        z-index: 20;
+        z-index: 30;
     }
 
     .content{

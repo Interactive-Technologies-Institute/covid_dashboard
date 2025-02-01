@@ -27,6 +27,8 @@
 		);
 		map.setMaxBounds(bounds);
 
+        map.addControl(new mapboxgl.ScaleControl(), 'bottom-right');
+
 		return {
 			destroy() {
 				map?.remove();

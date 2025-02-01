@@ -82,7 +82,7 @@
 			</div>
 		</div>
 	</div>
-	<button class="color-scale-button absolute bottom-[140px] right-2 z-20"
+	<button class="color-scale-button absolute bottom-[175px] right-2 z-20"
 					on:click={toggleColorButton}
 	>
 		<img src="{base}/icons/color_scale_icon.svg" alt="MENU" />

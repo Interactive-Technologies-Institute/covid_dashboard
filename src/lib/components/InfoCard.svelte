@@ -88,20 +88,23 @@
 			{/if}
 
 			<div class="border rounded-md m-2">
-			<p><span class="text-gray-700">ACES</span> {aces_stripped}</p>
+			<p class="text-gray-700">ACES</p> 
+					<p>{aces_stripped}</p>
 			</div>
 
 			<div class="border rounded-md m-2">
-					<p><span class="text-gray-700">Concelho</span> {concelho}</p>
+					<p class="text-gray-700">Concelho</p>
+						<p>{concelho}</p>
 					{#if casos_concelho}
 						<p>{casos_concelho["pop19"]} habitantes</p>
 						<p>{casos_concelho["ncases"]} casos</p>
-						<p>{casos_concelho["taxa"]}</p>
+						<p>Incidência: {casos_concelho["taxa"]}</p>
 					{/if}
 			</div>
 
 			<div class="border rounded-md m-2">
-				<p><span class="text-gray-700">Freguesia</span> {freguesia}</p>
+				<p class="text-gray-700">Freguesia</p>
+					<p>{freguesia}</p>
 			</div>
 		{/await}		
 	{:else}

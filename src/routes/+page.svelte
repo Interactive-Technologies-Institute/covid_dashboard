@@ -62,6 +62,7 @@
 	let hValue: number | null = null;
 	let hACES: string | null = null;
 	let hConcelho: string | null = null;
+	let hConcelhoId: string | null = null;
 	let hFreguesia: string | null = null;
 
 	let hoveredConcelho: number | null = null;
@@ -100,13 +101,17 @@
 				id="concelhos"
 				url={base + '/data/concelhos.json'}
 				visiblity={concelhos}
+				selectable={true}
+				lineWidth={2.5}
 				bind:hoveredLabel={hConcelho}
+				bind:hoveredId={hConcelhoId}
 			/>
 			<BorderLayer
 				id="aces"
 				url={base + '/data/aces.json'}
 				visiblity={distritos}
 				selectable={true}
+				lineWidth={4}
 				bind:selectedId={selectedACES}
 				bind:hoveredLabel={hACES}
 			/>
@@ -157,10 +162,13 @@
 		<InfoCard
 			aces={hACES}
 			concelho={hConcelho}
+			concelhoId={hConcelhoId}
 			freguesia={hFreguesia}
 			value={hValue}
 			label={getConfig(type).label}
 			description={getConfig(type).description}
+			url={base + '/data/casos-covid.json'}
+			{date}
 		/>
 		<DateSelector minDate={data.minDate} maxDate={data.maxDate} bind:date />
 	</div>

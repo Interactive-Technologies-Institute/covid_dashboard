@@ -44,12 +44,18 @@ def processar_casos():
             oid = row["oid_"]
             data = row["t"]
             taxa = row["tx"]
+            ncases = row["ncases"]
+            pop = row["pop19"]
             
             if oid not in output_json:
                 output_json[oid] = {}
             
             
-            output_json[oid][data] = taxa
+            output_json[oid][data] = {
+                "taxa": taxa,
+                "ncases": ncases,
+                "pop19": pop
+        }
 
         json.dump(output_json, jsonfile, ensure_ascii=False, indent=4)
 

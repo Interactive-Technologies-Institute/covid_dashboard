@@ -21,7 +21,7 @@
 
 		let date_text = date.toLocaleDateString('pt');
 
-		if (id in casos_json && date_text in casos_json[id]) {
+		if (casos_json.hasOwnProperty(id) && casos_json[id].hasOwnProperty(date_text)) {
 			return casos_json[id][date_text];
 		}
 	}
@@ -31,31 +31,40 @@
 	class="bg-white border border-gray-200 rounded-lg shadow-sm w-96 p-5 flex flex-col justify-center items-stretch font-medium text-black text-center"
 >
 	{#if hasData}
-		<p class="text-xl">{label}</p>
-		<p>{description}</p>
-		{#if typeof value === 'number'}
-			<p class="text-4xl font-bold text-black py-2">{value}</p>
-		{:else}
-			<div class="flex flex-row items-end gap-2">
-				<div class="flex-1" />
-				<p class="text-4xl font-bold text-black py-2">{value?.[1]}</p>
-				<p class="flex-1 text-left text-base font-bold text-black py-2">
-					[{value?.[0]}, {value?.[2]}]
-				</p>
-			</div>
-		{/if}
-		<p>{aces}</p>
-		<p>
-			{#await casos_covid then casos_json}
-		    	{#if taxa_covid(concelhoId, casos_json)}
-					(taxa diária: {taxa_covid(concelhoId, casos_json)})
-				{/if}
-			{/await}
+		{#await casos_covid then casos_json}
+		    {@const casos_concelho = taxa_covid(concelhoId, casos_json)}
+			{@const aces_stripped = aces?.replace("ACES ", "")}
+			<p class="text-xl">{label}</p>
+			<p>{description}</p>
+			{#if typeof value === 'number'}
+				<p class="text-4xl font-bold text-black py-2">{value}</p>
+			{:else}
+				<div class="flex flex-row items-end gap-2">
+					<div class="flex-1" />
+					<p class="text-4xl font-bold text-black py-2">{value?.[1]}</p>
+					<p class="flex-1 text-left text-base font-bold text-black py-2">
+						[{value?.[0]}, {value?.[2]}]
+					</p>
+				</div>
+			{/if}
 
-			{concelho}
-		</p>
-		<p>{freguesia}</p>
-		
+			<div class="border rounded-md m-2">
+			<p><span class="text-gray-700">ACES</span> {aces_stripped}</p>
+			</div>
+
+			<div class="border rounded-md m-2">
+					<p><span class="text-gray-700">Concelho</span> {concelho}</p>
+					{#if casos_concelho}
+						<p>{casos_concelho["pop19"]} habitantes</p>
+						<p>{casos_concelho["ncases"]} casos</p>
+						<p>{casos_concelho["taxa"]}</p>
+					{/if}
+			</div>
+
+			<div class="border rounded-md m-2">
+				<p><span class="text-gray-700">Freguesia</span> {freguesia}</p>
+			</div>
+		{/await}		
 	{:else}
 		<p class="text-xl font-medium text-gray-700">
 			PASSE O CURSOR SOBRE O MAPA PARA SABER O VALOR NAQUELA ZONA

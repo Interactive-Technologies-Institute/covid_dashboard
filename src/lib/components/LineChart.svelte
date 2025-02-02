@@ -159,7 +159,7 @@
 			plugins: {
 				title: {
 					display: true,
-					text: 'Taxa incidência cumulativa total',
+					text: 'Incidência cumulativa a nível nacional',
 					padding: {
 						top: 0,
 						bottom: 10

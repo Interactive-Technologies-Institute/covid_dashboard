@@ -185,7 +185,7 @@
 			plugins: {
 				title: {
 					display: true,
-					text: 'Taxa incidência cumulativa por concelho',
+					text: 'Incidência cumulativa por concelho, na área de influência do ACES',
 					padding: {
 						top: 0,
 						bottom: 10

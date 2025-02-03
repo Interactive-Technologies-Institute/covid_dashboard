@@ -32,12 +32,21 @@ export async function load(e: PageLoadEvent) {
 	e.url.searchParams.set('minDate', minDate.toISOString().slice(0, 10));
 	e.url.searchParams.set('maxDate', maxDate.toISOString().slice(0, 10));
 
-	const chart = (await (await e.fetch('data/chart.json')).json()).data as number[];
-	const chart2 = (await (await e.fetch('data/chart2.json')).json()).data as ChartData[];
-	const inc = (await (await e.fetch('data/inc.json')).json()).data as [number, number, number][][];
-	const iqd = (await (await e.fetch('data/iqd.json')).json()).data as number[][];
-	const prob = (await (await e.fetch('data/prob.json')).json()).data as number[][];
-	const incTrad = (await (await e.fetch('data/inc_trad.json')).json()).data as number[][];
+	const chart_promise = e.fetch('data/chart.json').then((response) => response.json()).then((j) => j.data as number[]);
+	const chart2_promise = e.fetch('data/chart2.json').then((response) => response.json()).then((j) => j.data as ChartData[]);
+	const inc_promise = e.fetch('data/inc.json').then((response) => response.json()).then((j) => j.data as [number, number, number][][]);
+	const iqd_promise = e.fetch('data/iqd.json').then((response) => response.json()).then((j) => j.data as number[][]);
+	const prob_promise = e.fetch('data/prob.json').then((response) => response.json()).then((j) => j.data as number[][]);;
+	const incTrad_promise = e.fetch('data/inc_trad.json').then((response) => response.json()).then((j) => j.data as number[][]);;
+
+
+	const chart = await chart_promise;
+	const chart2 = await chart2_promise;
+	const inc = await inc_promise;
+	const iqd = await iqd_promise;
+	const prob = await prob_promise;
+	const incTrad = await incTrad_promise;
+
 
 	return {
 		minDate: minDate,

@@ -104,7 +104,7 @@
 				<p class="text-gray-700">Freguesia</p>
 					<p>{freguesia}</p>
 			</div>
-		{/await}		
+		{/await}
 	{:else}
 		<p class="text-info text-xl font-medium text-gray-700">
 			PASSE O CURSOR SOBRE O MAPA PARA SABER O VALOR NAQUELA ZONA

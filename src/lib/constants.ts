@@ -28,7 +28,7 @@ export type ChartData = {
 
 export const configs: MapConfigs = {
 	[DataType.INCIDENCE]: {
-		label: 'Incidência cumulativa (IC 95%)',
+		label: 'Incidência cumulativa',
 		description: 'Por 100.000 habitantes',
 		stops: [
 			{

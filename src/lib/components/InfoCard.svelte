@@ -73,7 +73,13 @@
 		{#await casos_covid then casos_json}
 		    {@const casos_concelho = taxa_covid(concelhoId, casos_json)}
 			{@const aces_stripped = aces?.replace("ACES ", "")}
-			<p class="text-xl">{label}</p>
+			{#if label === 'Incidência cumulativa'}
+				<p class="text-2xl">
+					{label} <span class="text-sm text-black font-bold">[IC 95%]</span>
+				</p>
+			{:else }
+				<p class="text-2xl">{label}</p>
+			{/if}
 			<p>{description}</p>
 			{#if typeof value === 'number'}
 				<p class="text-4xl font-bold text-black py-2">{value}</p>

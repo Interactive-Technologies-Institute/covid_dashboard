@@ -14,6 +14,7 @@
 	import ConcelhoBorderLayer from '$lib/components/Map/ConcelhoBorderLayer.svelte';
 	import HelpButton from '$lib/components/HelpButton.svelte';
 	import PoisLayer from '$lib/components/Map/PoisLayer.svelte';
+	import { onMount } from 'svelte';
 
 	export let data;
 
@@ -71,6 +72,10 @@
 	$: pixelsData = getPixelData(type);
 	$: tradData = getTradData(type);
 	$: chart2Data = getChart2Data(selectedACES);
+
+    onMount(async () => {
+		
+	});
 </script>
 
 <div class="flex flex-col min-h-screen w-screen">

@@ -94,12 +94,10 @@
 
 			<div class="border rounded-md m-2">
 					<p class="text-gray-700">Concelho</p>
-						<p>{concelho}</p>
-					{#if casos_concelho}
-						<p>{casos_concelho["pop19"]} habitantes</p>
-						<p>{casos_concelho["ncases"]} casos</p>
-						<p>Incidência: {casos_concelho["taxa"]}</p>
-					{/if}
+					<p>{concelho}</p>
+					<p class="text-gray-700">População residente: {casos_concelho["pop19"]} </p>
+					<p class="text-gray-700">Número de casos: {casos_concelho["ncases"]} </p>
+					<p class="text-gray-700">Incidência cumulativa: {casos_concelho["taxa"]}</p>
 			</div>
 
 			<div class="border rounded-md m-2">

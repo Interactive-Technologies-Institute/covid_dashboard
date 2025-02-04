@@ -32,7 +32,7 @@
 
 
 <button class="help-button absolute bottom-[137px] right-2 z-20">
-	<a href="/help" target="_blank" rel="noopener noreferrer">
+	<a href="{base}/help.html" target="_blank" rel="noopener noreferrer">
 		<img src="{base}/icons/help.svg" alt="HELP" class="h-8" />
 	</a>
 </button>

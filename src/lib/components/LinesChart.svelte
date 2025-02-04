@@ -159,6 +159,9 @@
 			responsive: true,
 			scales: {
 				x: {
+					font: {
+						size: 4
+					},
 					type: 'time' as const,
 					time: {
 						displayFormats: {
@@ -175,6 +178,9 @@
 					}
 				},
 				y: {
+					font: {
+						size: 4
+					},
 					title: {
 						display: true,
 						text: 'Tx. inc. cum. (* 10\u2075 hab.)    ',
@@ -188,7 +194,7 @@
 					text: 'Incidência cumulativa por concelho, na área de influência do ACES',
 					padding: {
 						top: 0,
-						bottom: 10
+						bottom: 20
 					}
 				},
 				legend: {
@@ -258,7 +264,7 @@
 <div class="last-chart bg-white border border-gray-200 rounded-lg shadow-sm p-4"
 		 on:mouseleave={handleMouseLeave}>
 	{#if data}
-		<canvas use:initialize />
+		<canvas height="165px" use:initialize />
 	{:else}
 		<p class="text-xl font-medium text-center text-gray-700">
 			SELECIONE UM ACES PARA VER A EVOLUÇÃO DA INCIDÊNCIA NOS CONCELHOS

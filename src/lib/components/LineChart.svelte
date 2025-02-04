@@ -133,6 +133,9 @@
 			responsive: true,
 			scales: {
 				x: {
+					font: {
+						size: 4
+					},
 					type: 'time' as const,
 					time: {
 						displayFormats: {
@@ -149,6 +152,9 @@
 					}
 				},
 				y: {
+					font: {
+						size: 4
+					},
 					title: {
 						display: true,
 						text: 'Tx. inc. cum. (* 10\u2075 hab.)    ',
@@ -162,7 +168,7 @@
 					text: 'Incidência cumulativa a nível nacional',
 					padding: {
 						top: 0,
-						bottom: 10
+						bottom: 15
 					}
 				},
 				legend: {

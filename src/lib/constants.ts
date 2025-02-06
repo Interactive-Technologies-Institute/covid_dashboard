@@ -70,11 +70,11 @@ export const configs: MapConfigs = {
 		description: '240 casos / 100.000 habitantes',
 		stops: [
 			{
-				value: 1000,
+				value: 1,
 				color: '#000080'
 			},
 			{
-				value: 500,
+				value: 0.5,
 				color: '#984EA3'
 			},
 			{

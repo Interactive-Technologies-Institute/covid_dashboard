@@ -46,7 +46,7 @@
 	let dateIndex = dateToIndex(date);
 	let type = DataType.INCIDENCE;
 	let isTrad = data.isTrad;
-	let pixelsData = getPixelData(type);
+	let pixelsData: (number | [number, number, number])[][] | null = null;
 	let tradData = getTradData(type);
 	let chartData = data.chart;
 	let selectedACES: number | null = null;
@@ -69,9 +69,14 @@
 	let hoveredConcelho: number | null = null;
 
 	$: dateIndex = dateToIndex(date);
-	$: pixelsData = getPixelData(type);
 	$: tradData = getTradData(type);
 	$: chart2Data = getChart2Data(selectedACES);
+
+    $: {
+		getPixelData(type).then((d) => {
+			pixelsData = d;
+		});
+	}
 
 </script>
 
@@ -86,14 +91,14 @@
 					bind:hoveredValue={hValue}
 				/>
 			{:else}
-				{#await pixelsData then pixels}
+				{#if pixelsData}
 					<PixelLayer
-						data={pixels[dateIndex]}
+						data={pixelsData[dateIndex]}
 						stops={getConfig(type).stops}
 						{opacity}
 						bind:hoveredValue={hValue}
 					/>
-				{/await}
+				{/if}
 			{/if}
 			<BorderLayer
 				id="freguesias"

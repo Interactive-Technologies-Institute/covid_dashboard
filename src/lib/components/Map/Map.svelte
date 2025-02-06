@@ -27,6 +27,14 @@
 		);
 		map.setMaxBounds(bounds);
 
+        map.on('load', () => map!.addLayer({
+            	id: 'dummy-behind-everything',
+                type: 'background',
+                paint: {
+				    'background-opacity': 0,
+                }
+        }));
+
         map.addControl(new mapboxgl.ScaleControl(), 'bottom-right');
 
 		return {

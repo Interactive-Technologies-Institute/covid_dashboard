@@ -45,22 +45,28 @@ export async function load(e: PageLoadEvent) {
 			data: d.data.slice(minIndex, maxIndex + 1)
 		}))
 	});
-	const inc_promise = e.fetch('data/inc.json').then((response) => response.json()).then((j) => {
+	const incPromise = e.fetch('data/inc.json').then((response) => response.json()).then((j) => {
 		const inc = j.data as [number, number, number][][];
+
+		console.log("carreguei inc");
 
 		return inc.slice(minIndex, maxIndex + 1);
 	});
-	const iqd_promise = e.fetch('data/iqd.json').then((response) => response.json()).then((j) => {
+	const iqdPromise = e.fetch('data/iqd.json').then((response) => response.json()).then((j) => {
 		const iqd = j.data as number[][];
+
+		console.log("carreguei iqd");
 
 		return iqd.slice(minIndex, maxIndex + 1)
 	});
-	const prob_promise = e.fetch('data/prob.json').then((response) => response.json()).then((j) => {
+	const probPromise = e.fetch('data/prob.json').then((response) => response.json()).then((j) => {
 	    const prob = j.data as number[][];
+
+		console.log("carreguei prob");
 
 		return prob.slice(minIndex, maxIndex + 1);
 	});
-	const incTrad_promise = e.fetch('data/inc_trad.json').then((response) => response.json()).then((j) => {
+	const incTradPromise = e.fetch('data/inc_trad.json').then((response) => response.json()).then((j) => {
 	    const incTrad = j.data as number[][];
 
 		return incTrad.slice(minIndex, maxIndex + 1);
@@ -72,13 +78,15 @@ export async function load(e: PageLoadEvent) {
 		maxDate: maxDate,
 		chart: await chart_promise,
 		chart2: await chart2_promise,
+
 		pixels: {
-			[DataType.INCIDENCE]: await inc_promise,
-			[DataType.UNCERTAINTY]: await iqd_promise,
-			[DataType.PROBABILITY]: await prob_promise
+			[DataType.INCIDENCE]: incPromise,
+			[DataType.UNCERTAINTY]: iqdPromise,
+			[DataType.PROBABILITY]: probPromise
 		},
+
 		trad: {
-			[DataType.INCIDENCE]: await incTrad_promise,
+			[DataType.INCIDENCE]: await incTradPromise,
 			[DataType.UNCERTAINTY]: [],
 			[DataType.PROBABILITY]: []
 		},

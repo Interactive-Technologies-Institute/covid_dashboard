@@ -97,8 +97,8 @@
 			}
 		};
 		getMap()?.addSource(sourceId, source);
-		getMap()?.addLayer(layer);
-		getMap()?.addLayer(hoverLayer);
+		getMap()?.addLayer(layer, 'dummy-behind-everything');
+		getMap()?.addLayer(hoverLayer, 'dummy-behind-everything');
 		getMap()?.on('mousemove', hoverLayerId, onMouseEnter);
 		getMap()?.on('mouseleave', hoverLayerId, onMouseLeave);
 		initialized = true;
@@ -151,5 +151,6 @@
 		getMap()?.removeLayer(layerId);
 		getMap()?.removeSource(sourceId);
 		initialized = false;
+		console.log("destruiu");
 	});
 </script>

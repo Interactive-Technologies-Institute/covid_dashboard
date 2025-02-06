@@ -23,7 +23,7 @@
 		return (millis - data.minDate.valueOf()) / 86400000;
 	};
 
-	const getPixelData = (type: DataType): ([number, number, number] | number)[][] => {
+	const getPixelData = (type: DataType): Promise<([number, number, number] | number)[][]> => {
 		return data.pixels[type];
 	};
 
@@ -73,9 +73,6 @@
 	$: tradData = getTradData(type);
 	$: chart2Data = getChart2Data(selectedACES);
 
-    onMount(async () => {
-		
-	});
 </script>
 
 <div class="flex flex-col min-h-screen w-screen">
@@ -89,12 +86,14 @@
 					bind:hoveredValue={hValue}
 				/>
 			{:else}
-				<PixelLayer
-					data={pixelsData[dateIndex]}
-					stops={getConfig(type).stops}
-					{opacity}
-					bind:hoveredValue={hValue}
-				/>
+				{#await pixelsData then pixels}
+					<PixelLayer
+						data={pixels[dateIndex]}
+						stops={getConfig(type).stops}
+						{opacity}
+						bind:hoveredValue={hValue}
+					/>
+				{/await}
 			{/if}
 			<BorderLayer
 				id="freguesias"
@@ -121,22 +120,22 @@
 				bind:hoveredLabel={hACES}
 			/>
 			<PoisLayer
-			    id="hospitais"
+				id="hospitais"
 				url={base + '/data/hospitals.json'}
 				visibility={hospitais}
 				icon="hospital"
 			/>
 			<PoisLayer
-			    id="escolas"
+				id="escolas"
 				url={base + '/data/schools.json'}
 				visibility={escolas}
 				icon="college"
 			/>
 			<PoisLayer
-			    id="casasDeRepouso"
+				id="casasDeRepouso"
 				url={base + '/data/nursing-homes.json'}
 				visibility={casasDeRepouso}
-				icon="lodging"
+					icon="lodging"
 			/>
 
 

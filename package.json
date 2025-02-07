@@ -15,7 +15,8 @@
 		"csv2json": "python3 ./scripts/csv2json.py",
 		"csv2json-hospitals": "python3 ./scripts/csv2json-hospitals.py",
 		"csv2json-schools": "python3 ./scripts/csv2json-schools.py",
-		"csv2json-nursing-homes": "python3 ./scripts/csv2json-nursing-homes.py"
+		"csv2json-nursing-homes": "python3 ./scripts/csv2json-nursing-homes.py",
+		"cut-jsons": "python3 ./scripts/cut-jsons.py"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",

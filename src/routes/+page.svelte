@@ -19,8 +19,11 @@
 	export let data;
 
 	const dateToIndex = (date: Date): number => {
-		var millis = date.valueOf();
-		return (millis - data.minDate.valueOf()) / 86400000;
+		const days = date.valueOf() / 86400000;
+
+		const initialDay =  data.minDate.valueOf() / 86400000;
+
+		return days - initialDay;
 	};
 
 	const getPixelData = (type: DataType): Promise<([number, number, number] | number)[][]> => {

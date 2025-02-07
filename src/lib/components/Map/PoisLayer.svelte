@@ -3,7 +3,7 @@
     import { getContext } from 'svelte';
     import { key, mapboxgl, type MBMapContext } from './mapboxgl';
 
-    const { getMap } = getContext<MBMapContext>(key);
+    const { getMap, getReady } = getContext<MBMapContext>(key);
 
     export let id: string;
     export let url: string;
@@ -38,7 +38,7 @@
             source: sourceId,
             layout: {
                 'icon-image': icon,
-                'icon-size': 1, /*[
+                'icon-size': 0.7, /*[
                     'interpolate', ['linear'], ['zoom'],
                     6, 0.5,  
                     15, 1.5  
@@ -47,9 +47,12 @@
                 'text-offset': [0, 1.5],
                 'text-anchor': 'top'
             }
-        });
+        }, 'dummy-top');
 
-        map.moveLayer(layerId);
+        console.log("criou PoisLayer no top");
+
+
+        //map.moveLayer(layerId);
         
         map.on('mouseenter', layerId, (e) => {
             map.getCanvas().style.cursor = 'pointer';
@@ -80,7 +83,12 @@
 
     $: {
         if (!initialized) {
-			map.on('load', initialize);
+            if (getReady()) {
+				initialize();
+			}
+			else {
+				map.on('load', initialize);
+			}
 		}
     }
 

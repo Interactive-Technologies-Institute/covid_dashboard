@@ -2,7 +2,7 @@
 	import { getContext, onDestroy } from 'svelte';
 	import { key, mapboxgl, type MBMapContext } from './mapboxgl';
 
-	const { getMap } = getContext<MBMapContext>(key);
+	const { getMap, getReady } = getContext<MBMapContext>(key);
 
 	export let id: string;
 	export let url: string;
@@ -37,10 +37,6 @@
 
 			hoveredLabel = e.features[0].properties.label;
 			hoveredId = e.features[0].id;
-			if (id == "concelhos") {
-				console.log(e.features);
-				console.log("setando id", hoveredId);
-			}
 		}
 	}
 
@@ -82,20 +78,27 @@
 			}
 		};
 		getMap()?.addSource(id, source);
-		getMap()?.addLayer(layer);
+		getMap()?.addLayer(layer, 'dummy-middle');
+		console.log("criou BorderLayer no middle");
+
 		initialized = true;
 	}
 
 	$: {
 		if (!initialized) {
-			getMap()?.on('load', initialize);
+			if (getReady()) {
+				initialize();
+			}
+			else {
+				getMap()?.on('load', initialize);
+			}
 		}
 	}
 
 	$: {
 		if (initialized) {
 			if (selectable) {
-				getMap()?.addLayer(selectedLayer);
+				getMap()?.addLayer(selectedLayer, 'dummy-middle');
 				getMap()?.on('click', layerId, onMouseClick);
 			}
 		}

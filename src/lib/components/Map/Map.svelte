@@ -5,8 +5,11 @@
 
 	let map: mapboxgl.Map | undefined;
 
+    let mapIsReady = false;
+
 	setContext<MBMapContext>(key, {
-		getMap: () => map
+		getMap: () => map,
+        getReady: () => mapIsReady
 	});
 
 	function initialize(node: HTMLElement) {
@@ -18,6 +21,10 @@
 			minZoom: 6,
 			maxZoom: 15
 		});
+
+        map.once('load', () => mapIsReady = true);
+
+
 		map.dragRotate.disable();
 		map.touchZoomRotate.disableRotation();
 
@@ -26,6 +33,32 @@
 			[5.0, 51.0]   // Northeast corner (lng, lat)
 		);
 		map.setMaxBounds(bounds);
+
+        map.on('load', () => {
+        	map!.addLayer({
+            	id: 'dummy-bottom',
+                type: 'background',
+                paint: {
+				    'background-opacity': 0,
+                }
+            });
+
+            map!.addLayer({
+            	id: 'dummy-middle',
+                type: 'background',
+                paint: {
+				    'background-opacity': 0,
+                }
+            });
+
+            map!.addLayer({
+            	id: 'dummy-top',
+                type: 'background',
+                paint: {
+				    'background-opacity': 0,
+                }
+            });
+        });
 
         map.addControl(new mapboxgl.ScaleControl(), 'bottom-right');
 

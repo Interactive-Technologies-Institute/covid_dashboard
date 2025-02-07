@@ -4,7 +4,7 @@
 	import { getContext, onDestroy } from 'svelte';
 	import { key, mapboxgl, type MBMapContext } from './mapboxgl';
 
-	const { getMap } = getContext<MBMapContext>(key);
+	const { getMap, getReady } = getContext<MBMapContext>(key);
 
 	const sourceId = 'pixels';
 	const layerId = 'pixels-layer';
@@ -97,8 +97,9 @@
 			}
 		};
 		getMap()?.addSource(sourceId, source);
-		getMap()?.addLayer(layer);
-		getMap()?.addLayer(hoverLayer);
+		getMap()?.addLayer(layer, 'dummy-bottom');
+		getMap()?.addLayer(hoverLayer, 'dummy-bottom');
+		console.log("criou PixelLayer no bottom");
 		getMap()?.on('mousemove', hoverLayerId, onMouseEnter);
 		getMap()?.on('mouseleave', hoverLayerId, onMouseLeave);
 		initialized = true;
@@ -106,7 +107,12 @@
 
 	$: {
 		if (!initialized) {
-			getMap()?.on('load', initialize);
+			if (getReady()) {
+				initialize();
+			}
+			else {
+				getMap()?.on('load', initialize);
+			}
 		}
 	}
 
@@ -151,5 +157,6 @@
 		getMap()?.removeLayer(layerId);
 		getMap()?.removeSource(sourceId);
 		initialized = false;
+		console.log("destruiu");
 	});
 </script>

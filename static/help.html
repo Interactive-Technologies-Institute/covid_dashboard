@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<script>
+	lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +
+		"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
+		"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi " +
+		"ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit " +
+		"in voluptate velit esse cillum dolore eu fugiat nulla pariatur. " +
+		"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia " +
+		"deserunt mollit anim id est laborum."
+</script>
+
+<head>
+	<link rel="icon" href="icons/info_gray.png" type="image/png">
+	<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+	<title>Manual de Ajuda</title>
+</head>
+
+<main class="help-page">
+	<header class="help-header">
+		<h1>Manual de Ajuda</h1>
+	</header>
+
+	<div class="help-container">
+		<nav class="help-index">
+			<h2>Índice</h2>
+			<ul>
+				<li><a href="#subtitle2">Getting Started</a></li>
+				<li><a href="#subtitle3">Navigation</a></li>
+				<li><a href="#subtitle4">Account Management</a></li>
+				<li><a href="#metadados">Metadados</a></li>
+			</ul>
+		</nav>
+
+		<section class="user-manual">
+			<h2>Title 1</h2>
+			<p></p>
+
+			<h3 id="subtitle2">Subtitle 2</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+				Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+				aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+				voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+				occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+				est laborum.</p>
+
+			<h3 id="subtitle3">Subtitle 3</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+				Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+				aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+				voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+				occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+				est laborum.
+			</p>
+
+			<h3 id="subtitle4">Subtitle 4</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+				Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+				aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+				voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+				occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+				est laborum.
+			</p>
+
+			<h3 id="metadados">Metadados</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+				Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+				aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+				voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+				occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+				est laborum.
+			</p>
+			<a href="data/concelhos.json" download="concelhos.json">concelhos.json</a><br>
+			<a href="data/freguesias.json" download="freguesias.json">freguesias.json</a>
+		</section>
+	</div>
+
+	<div class="footer bg-white flex flex-row flex-wrap gap-20 p-5 items-center justify-center z-50">
+		<img src="logos/ist.svg" alt="IST" class="h-10" />
+		<img src="logos/cerena.svg" alt="CERENA" class="h-10" />
+		<img src="logos/iti.svg" alt="ITI" class="h-10" />
+		<img src="logos/cegist.svg" alt="CEGIST" class="h-10" />
+		<img src="logos/insa.png" alt="INSA" class="h-10" />
+		<img src="logos/fct.svg" alt="FCT" class="h-10" />
+	</div>
+</main>
+
+<style>
+    * {
+        margin: 0;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    .help-page {
+        margin: auto;
+        padding: 20px;
+    }
+    .help-header {
+        background-color: #007BFF;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        margin-top: calc(-50vw + 50%);
+    }
+    h1 {
+        text-align: center;
+				font-weight: bold;
+				font-size: large;
+    }
+
+    h2, h3 {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .help-container {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        max-height: calc(80vh - 30px);
+        overflow-y: auto;
+    }
+
+    .help-index {
+        flex: 3;
+        padding: 20px;
+        background-color: #f7f7f7;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+    .help-index h2 {
+        text-align: center;
+    }
+    .help-index ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    .help-index li {
+    }
+    .help-index a {
+        text-decoration: none;
+        color: #007BFF;
+        font-weight: bold;
+    }
+    .help-index a:hover {
+        text-decoration: underline;
+    }
+
+    .user-manual {
+        flex: 10;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+				height: fit-content;
+        background-color: white;
+        z-index: 50;
+
+    }
+
+    body {
+        padding-bottom: 30px;
+    }
+
+    a {
+        color: #007BFF;
+        text-decoration: underline;
+        font-weight: bold;
+    }
+
+    a:hover {
+        color: #0056b3;
+    }
+
+    @media (max-width: 920px) {
+        .help-container {
+            flex-direction: column;
+        }
+        .footer {
+            gap: 2rem;
+        }
+        .footer img {
+            height: 1.5rem;
+        }
+    }
+    @media (max-width: 675px) {
+        .help-container {
+            flex-direction: column;
+        }
+        .footer {
+            gap: 2rem;
+        }
+        .footer img {
+            height: 1rem;
+        }
+    }
+    @media (max-width: 585px) {
+        .help-container {
+            flex-direction: column;
+        }
+        .footer {
+            gap: 2rem;
+        }
+        .footer img {
+            height: 1rem;
+        }
+    }
+</style>
+
+
+
+

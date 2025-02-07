@@ -45,6 +45,7 @@ export async function load(e: PageLoadEvent) {
 			data: d.data.slice(minIndex, maxIndex + 1)
 		}))
 	});
+
 	const incPromise = e.fetch('data/inc.json').then((response) => response.json()).then((j) => {
 		const inc = j.data as [number, number, number][][];
 

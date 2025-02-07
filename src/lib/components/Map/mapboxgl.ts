@@ -6,6 +6,7 @@ const key = Symbol();
 
 export type MBMapContext = {
     getMap: () => mapboxgl.Map | undefined;
+    getReady: () => boolean;
 };
 
 export { key, mapboxgl };

@@ -1,7 +1,7 @@
 import csv
 import json
 
-with open('./static/data/openstrmap_equipamentos.csv', 'r', encoding="utf-8") as csvfile, \
+with open('./static/data/dados_localidades.csv', 'r', encoding="utf-8") as csvfile, \
      open('./static/data/schools.json', 'w', encoding="utf-8") as jsonfile:
     
     output_json = {"type": "FeatureCollection", "features": []}

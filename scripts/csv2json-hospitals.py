@@ -1,7 +1,7 @@
 import csv
 import json
 
-with open('./static/data/openstrmap_equipamentos.csv', 'r', encoding="utf-8") as csvfile, \
+with open('./static/data/dados_localidades.csv', 'r', encoding="utf-8") as csvfile, \
      open('./static/data/hospitals.json', 'w', encoding="utf-8") as jsonfile:
     
     output_json = {"type": "FeatureCollection", "features": []}
@@ -19,7 +19,7 @@ with open('./static/data/openstrmap_equipamentos.csv', 'r', encoding="utf-8") as
         equip_value = row.get('Equip')
         name_value = row.get('Name')  
         
-        if equip_value and "Saúde" in equip_value and name_value.strip() and name_value != "NA":
+        if equip_value and "Saude" in equip_value and name_value.strip() and name_value != "NA":
             inner_json = {
                 "type": "Feature",
                 "geometry": {

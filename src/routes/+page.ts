@@ -37,37 +37,40 @@ export async function load(e: PageLoadEvent) {
 	const minIndex = dateToIndex(minDate);
 	const maxIndex = dateToIndex(maxDate);
 
-	let segmentedInc: Promise<PixelJson>[] = new Array(numJsons).fill(null);
-	let iqdPromises = new Array(numJsons).fill(null);
-	let probPromises = new Array(numJsons).fill(null);
+	let incPromises: Promise<PixelJson>[] = new Array(numJsons).fill(null);
+	let iqdPromises: Promise<PixelJson>[] = new Array(numJsons).fill(null);
+	let probPromises: Promise<PixelJson>[] = new Array(numJsons).fill(null);
 
-	const incDownloadJson = async (n: number) => {
-		const url =  `data/inc/${n}.json`;
+	const downloadJson = async (n: number, type: string) => {
+		const url =  `data/${type}/${n}.json`;
 
 		const response = await e.fetch(url);
 
-		const json = await response.json();
+		const data = await response.json() as PixelJson;
 	    
-		const inc = json as [number, number, number][][];
+		console.log(`carreguei ${type} ${n}`);
 
-		console.log(`carreguei inc ${n}`);
-
-		return inc;
+		return data;
 	};
 
 	function wait(milliseconds: number) {
 		return new Promise(resolve => setTimeout(resolve, milliseconds));
 	  }
 
-	const seqDownloadInc = () => {
-		segmentedInc[0] = incDownloadJson(0);
+	const seqDownload = (type: string, array: Promise<PixelJson>[]) => {
+		array[0] = downloadJson(0, type);
 
 		for (let i = 1; i < numJsons; i++) {
-			segmentedInc[i] = wait(3000 * i).then(() => segmentedInc[i - 1]).then(() => incDownloadJson(i));
+			// we want to download sequentially but not await
+			array[i] = array[i - 1].then(() => downloadJson(i, type));
+			//wait(3000 * i).then(() => segmentedInc[i - 1]).then(() => incDownloadJson(i));
 		}
 	}
 
-	seqDownloadInc(); // we are not awaiting so it can downlod in the background
+	// we are not awaiting so it can downlod in the background
+	seqDownload('inc', incPromises);
+	seqDownload('iqd', iqdPromises);
+	seqDownload('prob', probPromises);
 
 	e.url.searchParams.set('minDate', minDate.toISOString().slice(0, 10));
 	e.url.searchParams.set('maxDate', maxDate.toISOString().slice(0, 10));
@@ -86,27 +89,6 @@ export async function load(e: PageLoadEvent) {
 		}))
 	});
 
-	const incPromise = e.fetch('data/inc.json').then((response) => response.json()).then((j) => {
-		const inc = j.data as [number, number, number][][];
-
-		console.log("carreguei inc");
-
-		return inc.slice(minIndex, maxIndex + 1);
-	});
-	const iqdPromise = e.fetch('data/iqd.json').then((response) => response.json()).then((j) => {
-		const iqd = j.data as number[][];
-
-		console.log("carreguei iqd");
-
-		return iqd.slice(minIndex, maxIndex + 1)
-	});
-	const probPromise = e.fetch('data/prob.json').then((response) => response.json()).then((j) => {
-	    const prob = j.data as number[][];
-
-		console.log("carreguei prob");
-
-		return prob.slice(minIndex, maxIndex + 1);
-	});
 	const incTradPromise = e.fetch('data/inc_trad.json').then((response) => response.json()).then((j) => {
 	    const incTrad = j.data as number[][];
 
@@ -121,13 +103,15 @@ export async function load(e: PageLoadEvent) {
 		chart: await chart_promise,
 		chart2: await chart2_promise,
 
-		segmentedIncPromise: segmentedInc,
+		segmentedIncPromise: incPromises,
+		segmentedIqdPromise: iqdPromises,
+		segmentedProbPromise: probPromises,
 
-		pixels: {
+		/*pixels: {
 			[DataType.INCIDENCE]: incPromise,
 			[DataType.UNCERTAINTY]: iqdPromise,
 			[DataType.PROBABILITY]: probPromise
-		},
+		},*/
 
 		trad: {
 			[DataType.INCIDENCE]: await incTradPromise,

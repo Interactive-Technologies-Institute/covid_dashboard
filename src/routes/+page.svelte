@@ -38,10 +38,6 @@
 		return dateToIndex(date) % 30;
 	};
 
-	const getPixelData = (type: DataType): Promise<([number, number, number] | number)[][]> => {
-		return data.pixels[type];
-	};
-
 	const getTradData = (type: DataType): number[][] => {
 		return data.trad[type];
 	};
@@ -85,8 +81,16 @@
 
 	let currentIncData: [number, number, number][][] | null;
 
+	
+	let segmentedInc: PixelJson[] = new Array(data.numJsons).fill(null);
+	let segmentedIqd: PixelJson[] = new Array(data.numJsons).fill(null);
+	let segmentedProb: PixelJson[] = new Array(data.numJsons).fill(null);
+
+
 
 	let currentInc: PixelJson | null = null;
+	let currntIqd: PixelJson | null = null;
+	let currentProb:  PixelJson | null = null;
 
 	$: dateIndex = dateToIndex(date);
 	$: tradData = getTradData(type);
@@ -94,18 +98,22 @@
 
 	$: currentJson = dateToJsonNum(date);
 	$: currentInc = segmentedInc[currentJson];
+	$: currentIqd = segmentedIqd[currentJson];
+	$: currentProb = segmentedProb[currentJson];
 	$: indexInCurrentJson = dateToIndexInJson(date);
-
-
-	let segmentedInc: PixelJson[] = new Array(data.numJsons).fill(null);
-
-    console.log(segmentedInc);
 
     $: {
 		for (let i = 0; i < data.numJsons; i++) {
 			data.segmentedIncPromise[i].then((x) => {
 				segmentedInc[i] = x;
 			})
+			data.segmentedIqdPromise[i].then((x) => {
+				segmentedIqd[i] = x;
+			})
+			data.segmentedProbPromise[i].then((x) => {
+				segmentedProb[i] = x;
+			})
+			
 		}
 	}
 

@@ -1,6 +1,11 @@
 import { DataType, type ChartData } from '$lib/constants';
 import type { PageLoadEvent } from './$types';
 
+import { setContext } from 'svelte';
+
+type PixelJson = ([number, number, number] | number)[][];
+
+
 /** @type {import('./$types').PageLoad} */
 export async function load(e: PageLoadEvent) {
 	const defaultMinDate = new Date('2020-05-15');
@@ -13,6 +18,9 @@ export async function load(e: PageLoadEvent) {
 		const millis = date.valueOf();
 		return (millis - defaultMinDate.valueOf()) / 86400000;
 	};
+
+	
+	let numJsons = Math.floor(dateToIndex(maxDate) / 30);
 
 	const params = e.url.searchParams;
 	const paramsMinDate = params.has('minDate') ? new Date(params.get('minDate')!) : null;
@@ -28,6 +36,38 @@ export async function load(e: PageLoadEvent) {
 
 	const minIndex = dateToIndex(minDate);
 	const maxIndex = dateToIndex(maxDate);
+
+	let segmentedInc: Promise<PixelJson>[] = new Array(numJsons).fill(null);
+	let iqdPromises = new Array(numJsons).fill(null);
+	let probPromises = new Array(numJsons).fill(null);
+
+	const incDownloadJson = async (n: number) => {
+		const url =  `data/inc/${n}.json`;
+
+		const response = await e.fetch(url);
+
+		const json = await response.json();
+	    
+		const inc = json as [number, number, number][][];
+
+		console.log(`carreguei inc ${n}`);
+
+		return inc;
+	};
+
+	function wait(milliseconds: number) {
+		return new Promise(resolve => setTimeout(resolve, milliseconds));
+	  }
+
+	const seqDownloadInc = () => {
+		segmentedInc[0] = incDownloadJson(0);
+
+		for (let i = 1; i < numJsons; i++) {
+			segmentedInc[i] = wait(3000 * i).then(() => segmentedInc[i - 1]).then(() => incDownloadJson(i));
+		}
+	}
+
+	seqDownloadInc(); // we are not awaiting so it can downlod in the background
 
 	e.url.searchParams.set('minDate', minDate.toISOString().slice(0, 10));
 	e.url.searchParams.set('maxDate', maxDate.toISOString().slice(0, 10));
@@ -77,8 +117,11 @@ export async function load(e: PageLoadEvent) {
 	return {
 		minDate: minDate,
 		maxDate: maxDate,
+		numJsons: numJsons,
 		chart: await chart_promise,
 		chart2: await chart2_promise,
+
+		segmentedIncPromise: segmentedInc,
 
 		pixels: {
 			[DataType.INCIDENCE]: incPromise,

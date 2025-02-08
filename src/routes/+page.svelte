@@ -14,9 +14,12 @@
 	import ConcelhoBorderLayer from '$lib/components/Map/ConcelhoBorderLayer.svelte';
 	import HelpButton from '$lib/components/HelpButton.svelte';
 	import PoisLayer from '$lib/components/Map/PoisLayer.svelte';
-	import { onMount } from 'svelte';
+	import { getContext } from 'svelte';
+
+	type PixelJson = ([number, number, number] | number)[][];
 
 	export let data;
+
 
 	const dateToIndex = (date: Date): number => {
 		const days = date.valueOf() / 86400000;
@@ -24,6 +27,15 @@
 		const initialDay =  data.minDate.valueOf() / 86400000;
 
 		return days - initialDay;
+	};
+
+
+	const dateToJsonNum = (date: Date): number => {
+		return  Math.floor(dateToIndex(date) / 30);
+	};
+
+	const dateToIndexInJson = (date: Date): number => {
+		return dateToIndex(date) % 30;
 	};
 
 	const getPixelData = (type: DataType): Promise<([number, number, number] | number)[][]> => {
@@ -71,14 +83,30 @@
 
 	let hoveredConcelho: number | null = null;
 
+	let currentIncData: [number, number, number][][] | null;
+
+
+	let currentInc: PixelJson | null = null;
+
 	$: dateIndex = dateToIndex(date);
 	$: tradData = getTradData(type);
 	$: chart2Data = getChart2Data(selectedACES);
 
+	$: currentJson = dateToJsonNum(date);
+	$: currentInc = segmentedInc[currentJson];
+	$: indexInCurrentJson = dateToIndexInJson(date);
+
+
+	let segmentedInc: PixelJson[] = new Array(data.numJsons).fill(null);
+
+    console.log(segmentedInc);
+
     $: {
-		getPixelData(type).then((d) => {
-			pixelsData = d;
-		});
+		for (let i = 0; i < data.numJsons; i++) {
+			data.segmentedIncPromise[i].then((x) => {
+				segmentedInc[i] = x;
+			})
+		}
 	}
 
 </script>
@@ -94,9 +122,9 @@
 					bind:hoveredValue={hValue}
 				/>
 			{:else}
-				{#if pixelsData}
+				{#if currentInc}
 					<PixelLayer
-						data={pixelsData[dateIndex]}
+						data={currentInc[indexInCurrentJson]}
 						stops={getConfig(type).stops}
 						{opacity}
 						bind:hoveredValue={hValue}

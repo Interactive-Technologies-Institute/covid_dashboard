@@ -37,7 +37,7 @@
         return;
       }
 
-      const locations = await (await fetch(base + "/data/portugal_locations_output.json")).json();
+      //const locations = await (await fetch(base + "/data/portugal_locations_output.json")).json();
 
       const geocoder = new MapboxGeocoder({
            accessToken: mapboxgl.accessToken,
@@ -45,7 +45,7 @@
            placeholder: 'Pesquise localidade em Portugal',
            bbox: [-9.5, 36.8, -6.2, 42.2],
            countries: 'PT',
-           localGeocoder: (query) => busca(query, locations)!,
+           //localGeocoder: (query) => busca(query, locations)!,
       });
 
       map!.addControl(geocoder, 'top-left');

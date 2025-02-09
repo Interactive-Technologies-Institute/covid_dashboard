@@ -7,7 +7,7 @@ def process_json(filename, dir):
         
     data = meujson['data']
     
-    stride = 30
+    stride = 10
     
     num = 0
     

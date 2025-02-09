@@ -31,11 +31,11 @@
 
 
 	const dateToJsonNum = (date: Date): number => {
-		return  Math.floor(dateToIndex(date) / 30);
+		return  Math.floor(dateToIndex(date) / 10);
 	};
 
 	const dateToIndexInJson = (date: Date): number => {
-		return dateToIndex(date) % 30;
+		return dateToIndex(date) % 10;
 	};
 
 	const getTradData = (type: DataType): number[][] => {

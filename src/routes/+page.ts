@@ -107,12 +107,6 @@ export async function load(e: PageLoadEvent) {
 		segmentedIqdPromise: iqdPromises,
 		segmentedProbPromise: probPromises,
 
-		/*pixels: {
-			[DataType.INCIDENCE]: incPromise,
-			[DataType.UNCERTAINTY]: iqdPromise,
-			[DataType.PROBABILITY]: probPromise
-		},*/
-
 		trad: {
 			[DataType.INCIDENCE]: await incTradPromise,
 			[DataType.UNCERTAINTY]: [],

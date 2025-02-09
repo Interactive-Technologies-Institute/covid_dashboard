@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from "svelte";
+	import { DataType } from '$lib/constants';
 
 	export let aces: string | null;
 	export let concelho: string | null;
@@ -11,6 +11,8 @@
 
 	export let url: string;
 	export let date: Date;
+
+	export let type: DataType;
 
 	$: hasData = value !== null && aces !== null && concelho !== null && freguesia !== null && concelhoId !== null;
 
@@ -99,11 +101,13 @@
 			</div>
 
 			<div class="border rounded-md m-2">
-					<p class="text-gray-700">Concelho</p>
-					<p>{concelho}</p>
+				<p class="text-gray-700">Concelho</p>
+				<p>{concelho}</p>
+				{#if type == DataType.INCIDENCE }
 					<p class="text-gray-700">População residente: {casos_concelho["pop19"]} </p>
 					<p class="text-gray-700">Número de casos: {casos_concelho["ncases"]} </p>
 					<p class="text-gray-700">Incidência cumulativa: {casos_concelho["taxa"]}</p>
+				{/if}
 			</div>
 
 			<div class="border rounded-md m-2">

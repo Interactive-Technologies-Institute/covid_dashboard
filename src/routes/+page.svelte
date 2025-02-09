@@ -222,6 +222,7 @@
 			concelhoId={hConcelhoId}
 			freguesia={hFreguesia}
 			value={hValue}
+			type={type}
 			label={getConfig(type).label}
 			description={getConfig(type).description}
 			url={base + '/data/casos-covid.json'}

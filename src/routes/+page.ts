@@ -1,7 +1,7 @@
 import { DataType, type ChartData } from '$lib/constants';
 import type { PageLoadEvent } from './$types';
 
-import { setContext } from 'svelte';
+import { base } from '$app/paths';
 
 type PixelJson = ([number, number, number] | number)[][];
 
@@ -42,9 +42,9 @@ export async function load(e: PageLoadEvent) {
 	let probPromises: Promise<PixelJson>[] = new Array(numJsons).fill(null);
 
 	const downloadJson = async (n: number, type: string) => {
-		const url =  `data/${type}/${n}.json`;
+		const url =  `${base}/data/${type}/${n}.json`;
 
-		const response = await e.fetch(url);
+		const response = await fetch(url);
 
 		const data = await response.json() as PixelJson;
 	    

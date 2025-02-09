@@ -83,21 +83,46 @@
 	let segmentedProb: PixelJson[] = new Array(data.numJsons).fill(null);
 
 
+	let currentJson = dateToJsonNum(date);
+	let indexInCurrentJson = dateToIndexInJson(date);
+
 
 	let currentInc: PixelJson | null = null;
 	let currentIqd: PixelJson | null = null;
 	let currentProb:  PixelJson | null = null;
 	let currentPixels: PixelJson | null = null;
 
+	let pixelsToday:  ([number, number, number] | number)[] | null = null;
+
 	$: dateIndex = dateToIndex(date);
 	$: tradData = getTradData(type);
 	$: chart2Data = getChart2Data(selectedACES);
 
-	$: currentJson = dateToJsonNum(date);
+	$: {
+		let old = currentJson;
+		currentJson = dateToJsonNum(date);
+		console.log(`current json mudando de ${old} para ${currentJson}`);
+	}
+	$:{
+		let oldd = indexInCurrentJson;
+		indexInCurrentJson = dateToIndexInJson(date);
+		console.log(`index mudando de ${oldd} para ${indexInCurrentJson}`);
+	}
+
 	$: currentInc = segmentedInc[currentJson];
 	$: currentIqd = segmentedIqd[currentJson];
 	$: currentProb = segmentedProb[currentJson];
-	$: indexInCurrentJson = dateToIndexInJson(date);
+
+	$: {
+		console.log(`index eh ${indexInCurrentJson} mas o array tem ${currentPixels?.length} elementos)`);
+		if (currentPixels && indexInCurrentJson < currentPixels.length) {
+			pixelsToday = currentPixels ? currentPixels[indexInCurrentJson] : null;
+		}
+		else {
+			pixelsToday = null;
+		}
+	}
+
 
 	$: {
 		if (type == DataType.INCIDENCE) {
@@ -125,8 +150,9 @@
 			
 		}
 	}
-
 </script>
+
+{@debug segmentedInc}
 
 <div class="flex flex-col min-h-screen w-screen">
 	<div class="relative grow h-screen">
@@ -139,9 +165,9 @@
 					bind:hoveredValue={hValue}
 				/>
 			{:else}
-				{#if currentPixels}
+				{#if pixelsToday}
 					<PixelLayer
-						data={currentPixels[indexInCurrentJson]}
+						data={pixelsToday}
 						stops={getConfig(type).stops}
 						{opacity}
 						bind:hoveredValue={hValue}

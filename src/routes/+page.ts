@@ -20,7 +20,7 @@ export async function load(e: PageLoadEvent) {
 	};
 
 	
-	let numJsons = Math.floor(dateToIndex(maxDate) / 30);
+	let numJsons = Math.ceil(dateToIndex(maxDate) / 30);
 
 	const params = e.url.searchParams;
 	const paramsMinDate = params.has('minDate') ? new Date(params.get('minDate')!) : null;

@@ -57,7 +57,6 @@
 	let dateIndex = dateToIndex(date);
 	let type = DataType.INCIDENCE;
 	let isTrad = data.isTrad;
-	let pixelsData: (number | [number, number, number])[][] | null = null;
 	let tradData = getTradData(type);
 	let chartData = data.chart;
 	let selectedACES: number | null = null;
@@ -78,9 +77,6 @@
 	let hFreguesia: string | null = null;
 
 	let hoveredConcelho: number | null = null;
-
-	let currentIncData: [number, number, number][][] | null;
-
 	
 	let segmentedInc: PixelJson[] = new Array(data.numJsons).fill(null);
 	let segmentedIqd: PixelJson[] = new Array(data.numJsons).fill(null);
@@ -89,8 +85,9 @@
 
 
 	let currentInc: PixelJson | null = null;
-	let currntIqd: PixelJson | null = null;
+	let currentIqd: PixelJson | null = null;
 	let currentProb:  PixelJson | null = null;
+	let currentPixels: PixelJson | null = null;
 
 	$: dateIndex = dateToIndex(date);
 	$: tradData = getTradData(type);
@@ -101,6 +98,18 @@
 	$: currentIqd = segmentedIqd[currentJson];
 	$: currentProb = segmentedProb[currentJson];
 	$: indexInCurrentJson = dateToIndexInJson(date);
+
+	$: {
+		if (type == DataType.INCIDENCE) {
+			currentPixels = currentInc;
+		}
+		else if (type == DataType.UNCERTAINTY) {
+			currentPixels = currentIqd;
+		}
+		else {
+			currentPixels = currentProb;
+		}
+	}
 
     $: {
 		for (let i = 0; i < data.numJsons; i++) {
@@ -130,9 +139,9 @@
 					bind:hoveredValue={hValue}
 				/>
 			{:else}
-				{#if currentInc}
+				{#if currentPixels}
 					<PixelLayer
-						data={currentInc[indexInCurrentJson]}
+						data={currentPixels[indexInCurrentJson]}
 						stops={getConfig(type).stops}
 						{opacity}
 						bind:hoveredValue={hValue}

@@ -13,6 +13,9 @@
 	export let hoveredId: string | null = null;
 	export let lineWidth: number = 1;
 
+	export let normalColor: string = 'red';
+	export let selectedColor: string = 'black';
+
 	let initialized: boolean = false;
 	let source: mapboxgl.AnySourceData;
 	let layerId: string;
@@ -59,7 +62,7 @@
 			source: id,
 			paint: {
 				'fill-color': 'transparent',
-				'fill-outline-color': 'black'
+				'fill-outline-color': normalColor,
 			}
 		};
 		selectedLayerId = layerId + '-select';
@@ -72,7 +75,7 @@
 				'line-color': [
 					'case',
 					['boolean', ['feature-state', 'selected'], false],
-					'black',
+					selectedColor,
 					'transparent'
 				]
 			}
@@ -109,7 +112,7 @@
 			getMap()?.setPaintProperty(
 				layerId,
 				'fill-outline-color',
-				visiblity ? 'black' : 'transparent'
+				visiblity ? normalColor : 'transparent'
 			);
 			if (selectable) {
 				getMap()?.setLayoutProperty(selectedLayerId, 'visibility', visiblity ? 'visible' : 'none');

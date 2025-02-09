@@ -178,6 +178,9 @@
 				id="freguesias"
 				url={base + '/data/freguesias.json'}
 				visiblity={freguesias}
+				lineWidth={1}
+				normalColor='#d3d3d3'
+				selectedColor=black
 				bind:hoveredLabel={hFreguesia}
 			/>
 			<BorderLayer
@@ -185,7 +188,9 @@
 				url={base + '/data/concelhos.json'}
 				visiblity={concelhos}
 				selectable={true}
-				lineWidth={2.5}
+				lineWidth={2}
+				normalColor=gray
+				selectedColor=gray
 				bind:hoveredLabel={hConcelho}
 				bind:hoveredId={hConcelhoId}
 			/>
@@ -194,7 +199,9 @@
 				url={base + '/data/aces.json'}
 				visiblity={distritos}
 				selectable={true}
-				lineWidth={4}
+				lineWidth={2}
+				normalColor=black
+				selectedColor=black
 				bind:selectedId={selectedACES}
 				bind:hoveredLabel={hACES}
 			/>

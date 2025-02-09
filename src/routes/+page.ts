@@ -108,7 +108,7 @@ export async function load(e: PageLoadEvent) {
 		segmentedProbPromise: probPromises,
 
 		trad: {
-			[DataType.INCIDENCE]: await incTradPromise,
+			[DataType.INCIDENCE]: incTradPromise,
 			[DataType.UNCERTAINTY]: [],
 			[DataType.PROBABILITY]: []
 		},

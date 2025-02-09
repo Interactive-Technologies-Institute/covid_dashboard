@@ -38,10 +38,6 @@
 		return dateToIndex(date) % 10;
 	};
 
-	const getTradData = (type: DataType): number[][] => {
-		return data.trad[type];
-	};
-
 	const getChart2Data = (aces: number | null): ChartData[] | null => {
 		if (aces === null) {
 			return null;
@@ -57,7 +53,7 @@
 	let dateIndex = dateToIndex(date);
 	let type = DataType.INCIDENCE;
 	let isTrad = data.isTrad;
-	let tradData = getTradData(type);
+	let tradData: number[][] | null = null;
 	let chartData = data.chart;
 	let selectedACES: number | null = null;
 	let chart2Data = getChart2Data(selectedACES);
@@ -95,7 +91,6 @@
 	let pixelsToday:  ([number, number, number] | number)[] | null = null;
 
 	$: dateIndex = dateToIndex(date);
-	$: tradData = getTradData(type);
 	$: chart2Data = getChart2Data(selectedACES);
 
 	$: {
@@ -140,30 +135,35 @@
 		for (let i = 0; i < data.numJsons; i++) {
 			data.segmentedIncPromise[i].then((x) => {
 				segmentedInc[i] = x;
-			})
+			});
 			data.segmentedIqdPromise[i].then((x) => {
 				segmentedIqd[i] = x;
-			})
+			});
 			data.segmentedProbPromise[i].then((x) => {
 				segmentedProb[i] = x;
-			})
+			});
 			
 		}
 	}
+	$: {
+		data.trad[DataType.INCIDENCE].then((x) => {
+			tradData = x;
+		});
+	}
 </script>
-
-{@debug segmentedInc}
 
 <div class="flex flex-col min-h-screen w-screen">
 	<div class="relative grow h-screen">
 		<Map>
 			{#if isTrad}
-				<TradLayer
-					data={tradData[dateIndex]}
-					stops={getConfig(type).stops}
-					{opacity}
-					bind:hoveredValue={hValue}
-				/>
+				{#if tradData}
+					<TradLayer
+						data={tradData[dateIndex]}
+						stops={getConfig(type).stops}
+						{opacity}
+						bind:hoveredValue={hValue}
+					/>
+				{/if}
 			{:else}
 				{#if pixelsToday}
 					<PixelLayer

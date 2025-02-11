@@ -63,7 +63,7 @@
 {#if config}
 	<div class="color-scale-content absolute bottom-0 right-0 z-20 w-[210px] h-[600px] overflow-hidden" class:color-scale-open={isColorButtonOpen}>
 		<div
-			class="color-scale absolute z-10 bottom-[180px] right-2 bg-white border border-gray-200 rounded-lg shadow w-[180px] flex flex-col justify-center items-start"
+			class="color-scale absolute z-10 bottom-[175px] right-2 bg-white border border-gray-200 rounded-lg shadow w-[180px] flex flex-col justify-center items-start"
 			class:is-open={isColorButtonOpen}
 		>
 			<div class="rounded-t-lg bg-blue-600 w-full p-2.5 flex flex-col">

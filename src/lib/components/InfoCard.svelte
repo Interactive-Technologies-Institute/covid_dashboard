@@ -30,6 +30,10 @@
 </script>
 
 <style>
+		.sup{
+        font-size: 0.7em;
+        vertical-align: super;
+		}
     @media (max-width: 675px) {
         .infocard-content{
             padding: 10px;
@@ -95,22 +99,31 @@
 				</div>
 			{/if}
 
-			<div class="border rounded-md m-2">
+			<div class="border rounded-md m-1">
 			<p class="text-gray-700">ACES</p> 
 					<p>{aces_stripped}</p>
 			</div>
 
-			<div class="border rounded-md m-2">
+			<div class="border rounded-md m-1">
 				<p class="text-gray-700">Concelho</p>
 				<p>{concelho}</p>
-				{#if type == DataType.INCIDENCE }
-					<p class="text-gray-700">População residente: {casos_concelho["pop19"]} </p>
-					<p class="text-gray-700">Número de casos: {casos_concelho["ncases"]} </p>
-					<p class="text-gray-700">Incidência cumulativa: {casos_concelho["taxa"]}</p>
+				{#if type === DataType.INCIDENCE}
+				<p class="text-sm text-gray-700">
+					População residente: <span class="font-bold text-base">{casos_concelho["pop19"]}</span>
+				</p>
+				<p class="text-sm text-gray-700">
+					Número de casos: <span class="font-bold text-base">{casos_concelho["ncases"]}</span>
+				</p>
+				<p class="text-sm text-gray-700">
+					Incidência cumulativa: <span class="font-bold text-base">{casos_concelho["taxa"]}</span>
+				</p>
+				<p class="text-xs font-lighttext-black">
+					10<span class="sup">5</span> * ncases / pop19 = tx
+				</p>
 				{/if}
 			</div>
 
-			<div class="border rounded-md m-2">
+			<div class="border rounded-md m-1">
 				<p class="text-gray-700">Freguesia</p>
 					<p>{freguesia}</p>
 			</div>

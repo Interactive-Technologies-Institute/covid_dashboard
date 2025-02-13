@@ -9,7 +9,7 @@
 	import PixelLayer from '$lib/components/Map/PixelLayer.svelte';
 	import TradLayer from '$lib/components/Map/TradLayer.svelte';
 	import SearchField from '$lib/components/SearchField.svelte';
-	import { DataType, configs, type ChartData, type MapConfig } from '$lib/constants';
+	import { DataType, configs, configsColorBlind, type ChartData, type MapConfig } from '$lib/constants';
 	import Sidebar from '$lib/components/Sidebar.svelte';
 	import ConcelhoBorderLayer from '$lib/components/Map/ConcelhoBorderLayer.svelte';
 	import HelpButton from '$lib/components/HelpButton.svelte';
@@ -44,8 +44,13 @@
 		return data.chart2.filter((d) => d.fids.includes(aces));
 	};
 
-	const getConfig = (type: DataType): MapConfig => {
-		return configs[type];
+	const getConfig = (type: DataType, accessibility: boolean): MapConfig => {
+		if (accessibility) {
+			return configsColorBlind[type];
+		}
+		else {
+			return configs[type];
+		}
 	};
 
 	let date = data.minDate;
@@ -57,6 +62,8 @@
 	let selectedACES: number | null = null;
 	let chart2Data = getChart2Data(selectedACES);
 
+
+
 	let distritos = true;
 	let concelhos = isTrad;
 	let freguesias = false;
@@ -64,6 +71,11 @@
 	let escolas = false;
 	let casasDeRepouso = false;
 	let opacity = 1;
+
+	let accessibility = false;
+
+	let currentConfig = getConfig(type, accessibility);
+	$: currentConfig = getConfig(type, accessibility);
 
 	let hValue: number | null = null;
 	let hACES: string | null = null;
@@ -149,7 +161,7 @@
 				{#if tradData}
 					<TradLayer
 						data={tradData[dateIndex]}
-						stops={getConfig(type).stops}
+						stops={currentConfig.stops}
 						{opacity}
 						bind:hoveredValue={hValue}
 					/>
@@ -158,7 +170,7 @@
 				{#if pixelsToday}
 					<PixelLayer
 						data={pixelsToday}
-						stops={getConfig(type).stops}
+						stops={currentConfig.stops}
 						{opacity}
 						bind:hoveredValue={hValue}
 					/>
@@ -234,11 +246,12 @@
 			bind:type={type}
 			bind:data={data}
 			bind:hoveredConcelho={hoveredConcelho}
+			bind:accessibility={accessibility}
 			chartData={chartData}
 			chart2Data={chart2Data}
 		/>
 		<HelpButton/>
-		<ColorScale config={getConfig(type)} />
+		<ColorScale config={currentConfig} />
 		<InfoCard
 			aces={hACES}
 			concelho={hConcelho}
@@ -246,8 +259,8 @@
 			freguesia={hFreguesia}
 			value={hValue}
 			type={type}
-			label={getConfig(type).label}
-			description={getConfig(type).description}
+			label={currentConfig.label}
+			description={currentConfig.description}
 			url={base + '/data/casos-covid.json'}
 			{date}
 		/>

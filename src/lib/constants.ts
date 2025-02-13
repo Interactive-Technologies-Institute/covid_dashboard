@@ -41,7 +41,7 @@ export const configs: MapConfigs = {
 			},
 			{
 				value: 0,
-				color: '#ffff80'
+				color: '#FFFFB3'
 			}
 		],
 		labels: ['1000+', '750', '500', '250', '0']
@@ -60,7 +60,7 @@ export const configs: MapConfigs = {
 			},
 			{
 				value: 0,
-				color: '#ffff80'
+				color: '#FFFFB3'
 			}
 		],
 		labels: ['1000+', '750', '500', '250', '0']
@@ -79,7 +79,7 @@ export const configs: MapConfigs = {
 			},
 			{
 				value: 0,
-				color: '#ffff80'
+				color: '#FFFFB3'
 			}
 		],
 		labels: ['1.0', '0.75', '0.5', '0.25', '0']

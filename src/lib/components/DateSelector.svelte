@@ -6,12 +6,21 @@
 	export let isPlaying = false;
 	let timer: NodeJS.Timer | undefined;
 
+	let isLastDate = value == maxDate.valueOf();
+
 	$: {
 		date = new Date(value);
+		isLastDate = value == maxDate.valueOf();
+
+		if (isLastDate) {
+			isPlaying = false;
+		}
+
 		if (isPlaying && !timer) {
 			timer = setInterval(() => {
 				value = value + 86400000;
-				if (value == maxDate.valueOf()) {
+				isLastDate = value == maxDate.valueOf();
+				if (isLastDate) {
 					isPlaying = false;
 				}
 			}, 1000);

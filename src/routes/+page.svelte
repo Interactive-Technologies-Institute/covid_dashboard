@@ -14,7 +14,6 @@
 	import ConcelhoBorderLayer from '$lib/components/Map/ConcelhoBorderLayer.svelte';
 	import HelpButton from '$lib/components/HelpButton.svelte';
 	import PoisLayer from '$lib/components/Map/PoisLayer.svelte';
-	import { getContext } from 'svelte';
 
 	type PixelJson = ([number, number, number] | number)[][];
 
@@ -93,23 +92,14 @@
 	$: dateIndex = dateToIndex(date);
 	$: chart2Data = getChart2Data(selectedACES);
 
-	$: {
-		let old = currentJson;
-		currentJson = dateToJsonNum(date);
-		console.log(`current json mudando de ${old} para ${currentJson}`);
-	}
-	$:{
-		let oldd = indexInCurrentJson;
-		indexInCurrentJson = dateToIndexInJson(date);
-		console.log(`index mudando de ${oldd} para ${indexInCurrentJson}`);
-	}
+	$: currentJson = dateToJsonNum(date);
+	$: indexInCurrentJson = dateToIndexInJson(date);
 
 	$: currentInc = segmentedInc[currentJson];
 	$: currentIqd = segmentedIqd[currentJson];
 	$: currentProb = segmentedProb[currentJson];
 
 	$: {
-		console.log(`index eh ${indexInCurrentJson} mas o array tem ${currentPixels?.length} elementos)`);
 		if (currentPixels && indexInCurrentJson < currentPixels.length) {
 			pixelsToday = currentPixels ? currentPixels[indexInCurrentJson] : null;
 		}

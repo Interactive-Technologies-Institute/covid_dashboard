@@ -42,7 +42,7 @@
       const geocoder = new MapboxGeocoder({
            accessToken: mapboxgl.accessToken,
            mapboxgl: mapboxgl,
-           placeholder: 'Pesquise localidade em Portugal',
+           placeholder: 'Procurar...',
            bbox: [-9.5, 36.8, -6.2, 42.2],
            countries: 'PT',
            //localGeocoder: (query) => busca(query, locations)!,

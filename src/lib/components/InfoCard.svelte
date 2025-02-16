@@ -19,7 +19,7 @@
     let casos_covid = fetch(url).then((dados) => dados.json());
 
 	function taxa_covid(_id: string | null, casos_json: any) {
-		let id =  _id!;
+		let id = _id!;
 
 		let date_text = date.toLocaleDateString('pt');
 
@@ -95,22 +95,28 @@
 				</div>
 			{/if}
 
-			<div class="border rounded-md m-2">
+			<div class="border rounded-md m-1">
 			<p class="text-gray-700">ACES</p> 
 					<p>{aces_stripped}</p>
 			</div>
 
-			<div class="border rounded-md m-2">
+			<div class="border rounded-md m-1">
 				<p class="text-gray-700">Concelho</p>
 				<p>{concelho}</p>
-				{#if type == DataType.INCIDENCE }
-					<p class="text-gray-700">População residente: {casos_concelho["pop19"]} </p>
-					<p class="text-gray-700">Número de casos: {casos_concelho["ncases"]} </p>
-					<p class="text-gray-700">Incidência cumulativa: {casos_concelho["taxa"]}</p>
+				{#if type === DataType.INCIDENCE}
+				<p class="text-sm text-gray-700">
+					População residente: <span class="font-bold text-base">{casos_concelho["pop19"]}</span>
+				</p>
+				<p class="text-sm text-gray-700">
+					Número de casos: <span class="font-bold text-base">{casos_concelho["ncases"]}</span>
+				</p>
+				<p class="text-sm text-gray-700">
+					Incidência cumulativa: <span class="font-bold text-base">{casos_concelho["taxa"]}</span>
+				</p>
 				{/if}
 			</div>
 
-			<div class="border rounded-md m-2">
+			<div class="border rounded-md m-1">
 				<p class="text-gray-700">Freguesia</p>
 					<p>{freguesia}</p>
 			</div>

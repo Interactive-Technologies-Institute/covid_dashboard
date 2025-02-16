@@ -19,7 +19,7 @@
     let casos_covid = fetch(url).then((dados) => dados.json());
 
 	function taxa_covid(_id: string | null, casos_json: any) {
-		let id =  _id!;
+		let id = _id!;
 
 		let date_text = date.toLocaleDateString('pt');
 
@@ -30,10 +30,6 @@
 </script>
 
 <style>
-		.sup{
-        font-size: 0.7em;
-        vertical-align: super;
-		}
     @media (max-width: 675px) {
         .infocard-content{
             padding: 10px;
@@ -116,9 +112,6 @@
 				</p>
 				<p class="text-sm text-gray-700">
 					Incidência cumulativa: <span class="font-bold text-base">{casos_concelho["taxa"]}</span>
-				</p>
-				<p class="text-xs font-lighttext-black">
-					10<span class="sup">5</span> * ncases / pop19 = tx
 				</p>
 				{/if}
 			</div>

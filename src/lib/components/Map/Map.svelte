@@ -62,6 +62,8 @@
 
         map.addControl(new mapboxgl.ScaleControl(), 'bottom-right');
 
+		map.addControl(new mapboxgl.NavigationControl(), 'bottom-left');
+
 		return {
 			destroy() {
 				map?.remove();
@@ -155,6 +157,11 @@
         }
 
         :global(.mapboxgl-ctrl-bottom-right) {
+            float: none !important;
+            position: absolute !important;
+            bottom: 6.5rem !important;
+        }
+        :global(.mapboxgl-ctrl-bottom-left .mapboxgl-ctrl-group) {
             float: none !important;
             position: absolute !important;
             bottom: 6.5rem !important;

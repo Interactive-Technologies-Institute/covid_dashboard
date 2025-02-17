@@ -251,7 +251,10 @@
 			chart2Data={chart2Data}
 		/>
 		<HelpButton/>
-		<ColorScale config={currentConfig} />
+		<ColorScale
+			config={currentConfig}
+			bind:accessibility={accessibility}
+		/>
 		<InfoCard
 			aces={hACES}
 			concelho={hConcelho}

@@ -69,7 +69,7 @@
 
 
 <div
-	class="infocard-content absolute z-10 top-16 right-5 bg-white border border-gray-200 rounded-lg shadow-sm w-96 p-5 flex flex-col justify-center items-stretch font-medium text-black text-center"
+	class="infocard-content absolute z-10 top-16 right-12 bg-white border border-gray-200 rounded-lg shadow-sm w-96 p-3 flex flex-col justify-center items-stretch font-medium text-black text-center"
 >
 	{#if hasData}
 		{#await casos_covid then casos_json}
@@ -77,7 +77,7 @@
 			{@const aces_stripped = aces?.replace("ACES ", "")}
 			{#if label === 'Incidência cumulativa'}
 				<p class="text-2xl">
-					{label} <span class="text-sm text-black font-bold">[IC 95%]</span>
+					{label} <span class="text-sm text-black font-bold" style="white-space: nowrap">[IC 95%]</span>
 				</p>
 			{:else }
 				<p class="text-2xl">{label}</p>

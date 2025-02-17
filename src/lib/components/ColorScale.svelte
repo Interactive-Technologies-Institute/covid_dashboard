@@ -1,7 +1,11 @@
 <script lang="ts">
 	import type { MapConfig } from '$lib/constants';
 	import { base } from '$app/paths';
+	import ColorScaleToggle from '$lib/components/ColorScaleToggle.svelte';
+
 	export let config: MapConfig;
+	export let accessibility: boolean;
+
 	let gradient: string;
 
 	$: gradient = `linear-gradient(to bottom, ${config.stops.map((stop) => stop.color).join(', ')})`;
@@ -79,6 +83,9 @@
 						<span class="text-base font-medium text-black">{label}</span>
 					{/each}
 				</div>
+			</div>
+			<div class="w-full p-2 flex flex-col border-t-2">
+				<ColorScaleToggle label="Acessibilidade" bind:value={accessibility} />
 			</div>
 		</div>
 	</div>

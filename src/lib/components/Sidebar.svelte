@@ -19,9 +19,6 @@
 	export let casasDeRepouso: boolean;
 	export let type: DataType;
 
-	export let accessibility: boolean;
-
-
 	export let chartData: number[];
 	export let chart2Data: ChartData[] | null;
 	let date = data.minDate;
@@ -100,10 +97,7 @@
 					<TypeSelector bind:value={type} />
 				{/if}
 				<Slider bind:value={opacity} />
-				<div class=" flex items-center justify-center">
-					<Toggle label="Acessibilidade" bind:value={accessibility} />
-				</div>
-				<div class="flex flex-row justify-start space-x-24">
+				<div class="flex flex-row justify-start space-x-16">
 					<div class="flex flex-col space-y-1 pl-4">
 						<Toggle label="ACES" bind:value={distritos} />
 						<Toggle label="Concelhos" bind:value={concelhos} />
@@ -113,9 +107,6 @@
 						<Toggle label="Saúde" bind:value={hospitais} />
 						<Toggle label="Ensino" bind:value={escolas} />
 						<Toggle label="Social" bind:value={casasDeRepouso} />
-					</div>
-					<div class="flex flex-col space-y-1">
-						
 					</div>
 				</div>
 				<LineChart minDate={data.minDate} maxDate={data.maxDate} {date} data={chartData} />

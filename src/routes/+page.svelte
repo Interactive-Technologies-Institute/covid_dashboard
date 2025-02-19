@@ -246,7 +246,6 @@
 			bind:type={type}
 			bind:data={data}
 			bind:hoveredConcelho={hoveredConcelho}
-			bind:accessibility={accessibility}
 			chartData={chartData}
 			chart2Data={chart2Data}
 		/>

@@ -30,6 +30,10 @@
 </script>
 
 <style>
+    .infocard-content {
+        pointer-events: none !important;
+		}
+
     @media (max-width: 675px) {
         .infocard-content{
             padding: 10px;

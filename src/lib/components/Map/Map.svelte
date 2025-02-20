@@ -62,7 +62,7 @@
 
         map.addControl(new mapboxgl.ScaleControl(), 'bottom-right');
 
-		map.addControl(new mapboxgl.NavigationControl(), 'bottom-left');
+		map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
 
 		return {
 			destroy() {
@@ -112,6 +112,13 @@
         bottom: 5rem !important;
     }
 
+    :global(.mapboxgl-ctrl-group) {
+        float: none !important;
+        position: absolute !important;
+        bottom: 134px !important;
+				right: 1px !important;
+		}
+
     @media (max-width: 1250px) {
         :global(.mapboxgl-ctrl-bottom-left) {
             float: none !important;
@@ -123,6 +130,13 @@
             float: none !important;
             position: absolute !important;
             bottom: 4rem !important;
+        }
+
+        :global(.mapboxgl-ctrl-group) {
+            float: none !important;
+            position: absolute !important;
+            bottom: 150px !important;
+            right: 1px !important;
         }
     }
 
@@ -137,6 +151,13 @@
             float: none !important;
             position: absolute !important;
             bottom: 3.5rem !important;
+        }
+
+        :global(.mapboxgl-ctrl-group) {
+            float: none !important;
+            position: absolute !important;
+            bottom: 158px !important;
+            right: 1px !important;
         }
     }
 
@@ -161,11 +182,14 @@
             position: absolute !important;
             bottom: 6.5rem !important;
         }
-        :global(.mapboxgl-ctrl-bottom-left .mapboxgl-ctrl-group) {
+
+        :global(.mapboxgl-ctrl-group) {
             float: none !important;
             position: absolute !important;
-            bottom: 6.5rem !important;
+            bottom: 193px !important;
+						right: 1px !important;
         }
+
     }
     @media (max-width: 400px) {
         :global(.mapboxgl-ctrl-top-left) {

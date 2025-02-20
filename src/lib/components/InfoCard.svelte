@@ -18,10 +18,10 @@
 
     let casos_covid = fetch(url).then((dados) => dados.json());
 
-	function taxa_covid(_id: string | null, casos_json: any) {
+	function taxa_covid(_id: string | null, casos_json: any, current_date: Date) {
 		let id = _id!;
 
-		let date_text = date.toLocaleDateString('pt');
+		let date_text = current_date.toLocaleDateString('pt');
 
 		if (casos_json.hasOwnProperty(id) && casos_json[id].hasOwnProperty(date_text)) {
 			return casos_json[id][date_text];
@@ -77,7 +77,7 @@
 >
 	{#if hasData}
 		{#await casos_covid then casos_json}
-		    {@const casos_concelho = taxa_covid(concelhoId, casos_json)}
+		    {@const casos_concelho = taxa_covid(concelhoId, casos_json, date)}
 			{@const aces_stripped = aces?.replace("ACES ", "")}
 			{#if label === 'Incidência cumulativa'}
 				<p class="text-2xl">

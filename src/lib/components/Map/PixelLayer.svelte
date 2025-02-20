@@ -99,7 +99,6 @@
 		getMap()?.addSource(sourceId, source);
 		getMap()?.addLayer(layer, 'dummy-bottom');
 		getMap()?.addLayer(hoverLayer, 'dummy-bottom');
-		console.log("criou PixelLayer no bottom");
 		getMap()?.on('mousemove', hoverLayerId, onMouseEnter);
 		getMap()?.on('mouseleave', hoverLayerId, onMouseLeave);
 		initialized = true;
@@ -157,6 +156,5 @@
 		getMap()?.removeLayer(layerId);
 		getMap()?.removeSource(sourceId);
 		initialized = false;
-		console.log("destruiu");
 	});
 </script>

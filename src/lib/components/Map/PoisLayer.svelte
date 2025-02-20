@@ -49,9 +49,6 @@
             }
         }, 'dummy-top');
 
-        console.log("criou PoisLayer no top");
-
-
         //map.moveLayer(layerId);
         
         map.on('mouseenter', layerId, (e) => {

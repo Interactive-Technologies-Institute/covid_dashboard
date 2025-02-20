@@ -82,7 +82,6 @@
 		};
 		getMap()?.addSource(id, source);
 		getMap()?.addLayer(layer, 'dummy-middle');
-		console.log("criou BorderLayer no middle");
 
 		initialized = true;
 	}

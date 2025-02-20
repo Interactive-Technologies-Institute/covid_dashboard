@@ -32,16 +32,6 @@
 </script>
 
 <style>
-    @media (max-width: 1250px) {
-        #slider {
-						bottom: 5rem;
-        }
-    }
-    @media (max-width: 920px) {
-        #slider {
-						bottom: 5rem;
-        }
-    }
     @media (max-width: 675px) {
         #slider {
             width: 23rem;
@@ -65,7 +55,7 @@
 </style>
 
 <div
-	id="slider" class="absolute z-10 bottom-24 left-0 right-0 mx-auto w-[30rem] bg-white border border-gray-200 rounded-lg shadow-sm flex flex-col justify-center items-center space-y-3 p-3"
+	id="slider" class="absolute z-10 bottom-20 left-0 right-0 mx-auto w-[30rem] bg-white border border-gray-200 rounded-lg shadow-sm flex flex-col justify-center items-center space-y-3 p-3"
 >
 	<div class="flex flex-row space-x-4 justify-center items-center">
 		<button

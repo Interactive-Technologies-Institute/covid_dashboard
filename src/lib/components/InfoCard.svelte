@@ -73,7 +73,7 @@
 
 
 <div
-	class="infocard-content absolute z-10 top-16 right-12 bg-white border border-gray-200 rounded-lg shadow-sm w-96 p-3 flex flex-col justify-center items-stretch font-medium text-black text-center"
+	class="infocard-content absolute z-30 top-16 right-12 bg-white border border-gray-200 rounded-lg shadow-sm w-96 p-3 flex flex-col justify-center items-stretch font-medium text-black text-center"
 >
 	{#if hasData}
 		{#await casos_covid then casos_json}

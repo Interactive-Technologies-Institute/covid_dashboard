@@ -75,13 +75,13 @@
 		</section>
 	</div>
 
-	<div class="footer bg-white flex flex-row flex-wrap gap-20 p-5 items-center justify-center z-50">
-		<img src="logos/ist.svg" alt="IST" class="h-10" />
-		<img src="logos/cerena.svg" alt="CERENA" class="h-10" />
-		<img src="logos/iti.svg" alt="ITI" class="h-10" />
-		<img src="logos/cegist.svg" alt="CEGIST" class="h-10" />
-		<img src="logos/insa.png" alt="INSA" class="h-10" />
-		<img src="logos/fct.svg" alt="FCT" class="h-10" />
+	<div class="footer bg-white flex flex-row flex-wrap gap-20 items-center justify-center z-50">
+		<img src="logos/ist.svg" alt="IST" class="h-12" />
+		<img src="logos/cerena.svg" alt="CERENA" class="h-12" />
+		<img src="logos/iti.svg" alt="ITI" class="h-12" />
+		<img src="logos/cegist.svg" alt="CEGIST" class="h-12" />
+		<img src="logos/insa.png" alt="INSA" class="h-12" />
+		<img src="logos/fct.svg" alt="FCT" class="h-12 " />
 	</div>
 </main>
 
@@ -93,7 +93,8 @@
     }
     .help-page {
         margin: auto;
-        padding: 20px;
+				min-height: 100vh;
+        padding: 20px 20px 0 20px;
     }
     .help-header {
         background-color: #007BFF;
@@ -117,10 +118,8 @@
 
     .help-container {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         gap: 20px;
-        max-height: calc(80vh - 30px);
-        overflow-y: auto;
     }
 
     .help-index {
@@ -153,23 +152,15 @@
         padding: 20px;
         border: 1px solid #ddd;
         border-radius: 8px;
-        max-height: 80vh;
-        overflow-y: auto;
     }
 
     .footer {
-        position: fixed;
-        left: 0;
-        bottom: 0;
+        padding: 20px 20px 0 20px;
         width: 100%;
 				height: fit-content;
         background-color: white;
         z-index: 50;
 
-    }
-
-    body {
-        padding-bottom: 30px;
     }
 
     a {
@@ -183,36 +174,11 @@
     }
 
     @media (max-width: 920px) {
-        .help-container {
-            flex-direction: column;
-        }
         .footer {
             gap: 2rem;
         }
         .footer img {
             height: 1.5rem;
-        }
-    }
-    @media (max-width: 675px) {
-        .help-container {
-            flex-direction: column;
-        }
-        .footer {
-            gap: 2rem;
-        }
-        .footer img {
-            height: 1rem;
-        }
-    }
-    @media (max-width: 585px) {
-        .help-container {
-            flex-direction: column;
-        }
-        .footer {
-            gap: 2rem;
-        }
-        .footer img {
-            height: 1rem;
         }
     }
 </style>

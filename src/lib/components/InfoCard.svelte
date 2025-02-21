@@ -34,6 +34,10 @@
         pointer-events: none !important;
 		}
 
+    .closed-div{
+        z-index: 2;
+    }
+
     @media (max-width: 675px) {
         .infocard-content{
             padding: 10px;
@@ -74,6 +78,7 @@
 
 <div
 	class="infocard-content absolute z-30 top-16 right-12 bg-white border border-gray-200 rounded-lg shadow-sm w-96 p-3 flex flex-col justify-center items-stretch font-medium text-black text-center"
+	class:closed-div={!hasData}
 >
 	{#if hasData}
 		{#await casos_covid then casos_json}

@@ -1,15 +1,5 @@
 <!DOCTYPE html>
 
-<script>
-	lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +
-		"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
-		"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi " +
-		"ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit " +
-		"in voluptate velit esse cillum dolore eu fugiat nulla pariatur. " +
-		"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia " +
-		"deserunt mollit anim id est laborum."
-</script>
-
 <head>
 	<link rel="icon" href="icons/info_gray.png" type="image/png">
 	<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
@@ -17,71 +7,272 @@
 </head>
 
 <main class="help-page">
-	<header class="help-header">
+	<div class="help-header">
 		<h1>Manual de Ajuda</h1>
-	</header>
+	</div>
 
 	<div class="help-container">
+		<div>
+			<p class="text-2xl">
+				Link de Acesso:<span id="access-link" class="text-sm text-black font-bold" style="white-space: nowrap">[IC 95%]</span>
+			</p>
+
+		</div>
+
 		<nav class="help-index">
 			<h2>Índice</h2>
 			<ul>
-				<li><a href="#subtitle2">Getting Started</a></li>
-				<li><a href="#subtitle3">Navigation</a></li>
-				<li><a href="#subtitle4">Account Management</a></li>
-				<li><a href="#metadados">Metadados</a></li>
+				<li style="line-height: 1;"><a href="#title1">1. Introdução</a></li>
+				<li style="line-height: 1;"><a href="#title2">2. Métodos</a></li>
+				<li style="line-height: 0.5; font-size: small"><a href="#subtitle21">&nbsp;&nbsp;&nbsp;&nbsp;2.1. Dados de entrada</a></li>
+				<li style="line-height: 0.5; font-size: small"><a href="#subtitle22">&nbsp;&nbsp;&nbsp;&nbsp;2.2. Correlação espacial</a></li>
+				<li style="line-height: 0.5; font-size: small"><a href="#subtitle23">&nbsp;&nbsp;&nbsp;&nbsp;2.3. Simulação Sequencial Directa por Blocos</a></li>
+				<li style="line-height: 0.5; font-size: small"><a href="#subtitle24">&nbsp;&nbsp;&nbsp;&nbsp;2.4. Mapas de incidência e quantificação da incerteza espacial</a></li>
+				<li style="line-height: 1;"><a href="#title3">3. Navegação</a></li>
+				<li style="line-height: 1;"><a href="#title4">4. Metadados</a></li>
 			</ul>
 		</nav>
 
 		<section class="user-manual">
-			<h2>Title 1</h2>
-			<p></p>
+			<h2 id="title1">1. Introdução</h2>
+			<p id="intro-text"></p>
 
-			<h3 id="subtitle2">Subtitle 2</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-				aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-				voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-				occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-				est laborum.</p>
+			<div>
+				<img src="help_page_content/image1.png" alt="Dashboard" style="width: 80%; justify-self: center;">
+			</div>
 
-			<h3 id="subtitle3">Subtitle 3</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-				aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-				voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-				occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-				est laborum.
+			<h2 id="title2">2. Métodos</h2>
+			<p id="methods"></p>
+
+			<div>
+				<img src="help_page_content/image2.png" alt="Dashboard" style="width: 50%; justify-self: center;">
+			</div>
+
+			<h3 id="subtitle21">2.1. Dados de entrada</h3>
+			<p id="methods2_1a"></p>
+			<div>
+				<img src="help_page_content/image3.png" alt="Dashboard" style="width: 30%; justify-self: center;">
+			</div>
+			<p id="methods2_1b"></p>
+			<div>
+				<img src="help_page_content/image4.png" alt="Dashboard" style="width: 30%; justify-self: center;">
+			</div>
+
+			<h3 id="subtitle22">2.2. Correlação espacial</h3>
+			<p id="methods2_2a"></p>
+			<div>
+				<img src="help_page_content/image5.png" alt="Dashboard" style="width: 30%; justify-self: center;">
+			</div>
+			<p id="methods2_2b"></p>
+
+			<h3 id="subtitle23">2.3. Simulação Sequencial Directa por Blocos</h3>
+			<p id="methods2_3a"></p>
+			<div>
+				<img src="help_page_content/image6.png" alt="Dashboard" style="width: 30%; justify-self: center;">
+			</div>
+			<p id="methods2_3b"></p>
+
+			<h3 id="subtitle24">2.4. Mapas de incidência e quantificação da incerteza espacial</h3>
+			<p id="methods2_4a"></p>
+			<div>
+				<img src="help_page_content/image7.png" alt="Dashboard" style="width: 30%; justify-self: center;">
+			</div>
+			<p id="methods2_4b"></p>
+			<div>
+				<img src="help_page_content/image8.png" alt="Dashboard" style="width: 30%; justify-self: center;">
+			</div>
+			<p id="methods2_4c"></p>
+			<div>
+				<img src="help_page_content/image9.png" alt="Dashboard" style="width: 30%; justify-self: center;">
+			</div>
+			<p id="methods2_4d"></p>
+			<div>
+				<img src="help_page_content/image10.png" alt="Dashboard" style="width: 30%; justify-self: center;">
+			</div>
+
+			<h2 id="title3">3. Navegação</h2>
+			<div>
+				<img src="help_page_content/image11.png" alt="Dashboard" style="width: 70%">
+			</div>
+			<p id="navigation"></p>
+
+			<div class="table-container">
+				<table>
+					<thead>
+					<tr>
+						<th>ID</th>
+						<th>Nome funcionalidade</th>
+						<th>Descrição</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>1</td>
+						<td>Ocultar/mostrar menu</td>
+						<td>Ferramenta que permite alternar entre ocultar e exibir o menu lateral. Quando ocultado aumenta a área de visualização do mapa.</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Selector de mapa</td>
+						<td>
+							Pode selecionar um dos três tipos de mapa:
+							<strong>Incidência cumulativa</strong> – O valor em cada pixel
+							representa a incidência mediana diária por COVID-19 por 100.000 habitantes;
+							<strong>Incerteza espacial</strong> – Em cada pixel, corresponde ao valor da amplitude interquartil
+							(diferença entre valores nos percentis 75 e 25 da distribuição dos valores simulados no pixel);
+							<strong>Probabilidade de excedência</strong> – Representa probabilidade conjunta (i.e. de todos os pixéis)
+							excederem um valor de corte especificado (240/100000 habitantes).
+						</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>Controlo deslizante transparência</td>
+						<td>Serve para ajustar a transparência do mapa, deslizando o botão para a esquerda (mais transparência) ou para a direita (menos transparência).</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>Selectores de camadas temáticas</td>
+						<td>Permite visualizar no mapa os limites das ACES, Concelhos e Freguesias, e a localização de equipamentos (Sociais, de Saúde e de Ensino) podendo combinar várias camadas em simultâneo.</td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>Gráfico da curva epidémica</td>
+						<td>Apresenta a curva de evolução temporal, em dias, da distribuição da incidência cumulativa da COVID-19 em Portugal durante o período analisado. A barra preta vertical encontra-se posicionada no dia a que se refere o mapa ativo.</td>
+					</tr>
+					<tr>
+						<td>6</td>
+						<td>Gráfico da curva epidémica por ACES</td>
+						<td>Apresenta as curvas de evolução temporal da incidência cumulativa da COVID-19 nos concelhos pertencentes ao ACES selecionado. Para visualizar as curvas dos municípios de um ACES específico, é necessário clicar com o cursor no mapa em cima do ACES desejado.</td>
+					</tr>
+					<tr>
+						<td>7</td>
+						<td>Procurar Localidade</td>
+						<td>Caixa de pesquisa para localizar e recentrar o mapa numa localidade.</td>
+					</tr>
+					<tr>
+						<td>8</td>
+						<td>Mapa</td>
+						<td>Pode visualizar qualquer dos mapas disponíveis no seletor de mapas, selecionando o mapa pretendido (ver 2.).</td>
+					</tr>
+					<tr>
+						<td>9</td>
+						<td>Controlo time lapse</td>
+						<td>Permite ver uma versão animada do mapa com visualização sequencial de mapas <a href="#ref2">diários</a>.
+							Permite visualizar a dinâmica espacial e temporal do mapa usando os botões disponíveis:<br>
+							<img src="help_page_content/table9.png" alt="Dashboard" style="width: 40%; justify-self: center">
+							A data indicada no centro do controlo indica o dia que está a ser visualizado.
+						</td>
+					</tr>
+					<tr>
+						<td>10</td>
+						<td>Caixa texto com valor da medida por pixel</td>
+						<td>Dá informação, para um pixel (onde se encontra posicionado o cursor do rato) e dia específico:<br>
+							- valor da medida no pixel.<br>
+							- Nome do ACES, Município e Freguesia a que pertence o pixel<br><br>
+							Quando o mapa é o da incidência cumulativa fornece as seguintes informações adicionais:<br>
+							- intervalo confiança 95% para o valor da incidência.<br>
+							- valor da incidência cumulativa no concelho a que pertence o pixel</td>
+					</tr>
+					<tr>
+						<td>11</td>
+						<td>Escala gráfica</td>
+						<td>Representa as distâncias no mapa, ajustando-se conforme o zoom.</td>
+					</tr>
+					<tr>
+						<td>12</td>
+						<td>Ocultar/mostrar manual</td>
+						<td>Ferramenta que permite alternar entre ocultar e exibir o manual de utilização.
+							Quando ocultado aumenta a área de visualização do mapa.</td>
+					</tr>
+					<tr>
+						<td>13</td>
+						<td>Ocultar/mostrar legenda do mapa</td>
+						<td>Ferramenta que permite alternar entre ocultar e exibir a legenda de cores do
+							mapa selecionado. Quando ocultado aumenta a área de visualização do mapa.</td>
+					</tr>
+
+					</tbody>
+				</table>
+			</div>
+
+			<h2 id="title34">4. Metadados</h2>
+			<div class="table-container">
+				<table style="border: 1px solid gray; border-collapse: collapse; width: 100%;">
+					<thead>
+					<tr>
+						<th>Título</th>
+						<th>Descrição</th>
+						<th>Ano</th>
+						<th>Fonte</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>Casos COVID-19</td>
+						<td>Os dados da COVID-19 utilizados para a construção desta ferramenta não são de acesso público,
+							mas podem ser	obtidos através do SINAVE (Sistema Nacional de Vigilância Epidemiológica),
+							que regista todos os novos casos confirmados de SARS-CoV-2 (detetados via PCR e RAT).
+
+							Os dados foram usados sob licença e fornecidos pela Direção Geral de Saúde (DGS) após assinatura de um acordo de confidencialidade e privacidade no âmbito do Artigo 39 do Decreto-Lei 2-B/2020 de 2 de abril 2020.</td>
+						<td>2020</td>
+						<td>DGS</td>
+					</tr>
+					<tr>
+						<td>Estimativa da População residente</td>
+						<td>População residente (N.º) por Local de residência (NUTS - 2013), Sexo e Grupo etário (quinquenais).</td>
+						<td>2020</td>
+						<td>INE</td>
+					</tr>
+					<tr>
+						<td>Equipamentos de Saúde</td>
+						<td>Conjunto das Unidades hospitalares,	Centros de Saúde e as Unidades funcionais dos ACES. Dados extraidos, respectivamente, a partir das seguintes fontes:<br>
+							<a href="https://www.sns.gov.pt/institucional/entidades-de-saude/" target="_blank">https://www.sns.gov.pt/institucional/entidades-de-saude/</a><br>
+							<a href="https://bicsp.min-saude.pt/Paginas/default.aspx" target="_blank">https://bicsp.min-saude.pt/Paginas/default.aspx</a>
+						</td>
+						<td>2021-2024</td>
+						<td>INSA</td>
+					</tr>
+					<tr>
+						<td>Equipamentos de Ensino</td>
+						<td>Localização e tipologia de estabelecimentos de ensino extraídos da base de dados OpenStreetMap.</td>
+						<td>2024</td>
+						<td><a href="https://www.openstreetmap.org/" target="_blank">https://www.openstreetmap.org/</a></td>
+					</tr>
+					<tr>
+						<td>Equipamentos Sociais</td>
+						<td>Localização e tipologia de equipamentos sociais extraídos da base de dados OpenStreetMap.</td>
+						<td>2024</td>
+						<td><a href="https://www.openstreetmap.org/" target="_blank">https://www.openstreetmap.org/</a></td>
+					</tr>
+					<tr>
+						<td>Toponímia - OpenStreetMap</td>
+						<td>Nomes de localidades, ruas e outros topónimos extraídos da base de dados OpenStreetMap.</td>
+						<td>2024</td>
+						<td><a href="https://www.openstreetmap.org/" target="_blank">https://www.openstreetmap.org/</a></td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+			<hr>
+			<h3 id="ref2">
+				<a href="#ref2">[1]</a>
+				<span class="font-normal text-sm">Os dados disponíveis neste dashboard referem-se apenas ao período entre 15 Mai 20 e 25 Mai 21.</span>
+
+			</h3>
+			<p>
+
 			</p>
-
-			<h3 id="subtitle4">Subtitle 4</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-				aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-				voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-				occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-				est laborum.
-			</p>
-
-			<h3 id="metadados">Metadados</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-				aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-				voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-				occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-				est laborum.
-			</p>
-			<a href="data/concelhos.json" download="concelhos.json">concelhos.json</a><br>
-			<a href="data/freguesias.json" download="freguesias.json">freguesias.json</a>
+			<script src="help_page_content/content.js"></script>
 		</section>
 	</div>
 
-	<div class="footer bg-white flex flex-row flex-wrap gap-20 p-5 items-center justify-center z-50">
+	<div class="footer bg-white flex flex-row flex-wrap gap-20 items-center justify-center z-50">
 		<img src="logos/ist.svg" alt="IST" class="h-10" />
 		<img src="logos/cerena.svg" alt="CERENA" class="h-10" />
 		<img src="logos/iti.svg" alt="ITI" class="h-10" />
 		<img src="logos/cegist.svg" alt="CEGIST" class="h-10" />
 		<img src="logos/insa.png" alt="INSA" class="h-10" />
-		<img src="logos/fct.svg" alt="FCT" class="h-10" />
+		<img src="logos/fct.svg" alt="FCT" class="h-10 " />
 	</div>
 </main>
 
@@ -93,16 +284,17 @@
     }
     .help-page {
         margin: auto;
-        padding: 20px;
+				min-height: 100vh;
+        padding: 20px 40px 0 40px;
     }
     .help-header {
         background-color: #007BFF;
         color: white;
-        padding: 15px;
         text-align: center;
-        width: 100vw;
-        margin-left: calc(-50vw + 50%);
-        margin-top: calc(-50vw + 50%);
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
     }
     h1 {
         text-align: center;
@@ -110,17 +302,25 @@
 				font-size: large;
     }
 
-    h2, h3 {
-        text-align: center;
+    h2 {
+				font-size: large;
+        text-align: left;
         font-weight: bold;
+        scroll-margin-top: 80px;
+    }
+
+    h3 {
+        text-align: left;
+        font-weight: bold;
+        padding-left: 4em;
+        scroll-margin-top: 80px;
     }
 
     .help-container {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         gap: 20px;
-        max-height: calc(80vh - 30px);
-        overflow-y: auto;
+				margin-top: 35px;
     }
 
     .help-index {
@@ -153,23 +353,15 @@
         padding: 20px;
         border: 1px solid #ddd;
         border-radius: 8px;
-        max-height: 80vh;
-        overflow-y: auto;
     }
 
     .footer {
-        position: fixed;
-        left: 0;
-        bottom: 0;
+        padding: 20px 20px 0 20px;
         width: 100%;
 				height: fit-content;
         background-color: white;
         z-index: 50;
 
-    }
-
-    body {
-        padding-bottom: 30px;
     }
 
     a {
@@ -182,37 +374,36 @@
         color: #0056b3;
     }
 
+    .table-container {
+        width: 800px;
+        margin: 20px auto;
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid gray;
+    }
+
+    th, td {
+        border: 1px solid gray;
+        padding: 6px 10px;
+        text-align: left;
+        font-size: 13px;
+        word-wrap: break-word;
+    }
+
+    th {
+        background-color: #f0f0f0;
+    }
+
     @media (max-width: 920px) {
-        .help-container {
-            flex-direction: column;
-        }
         .footer {
             gap: 2rem;
         }
         .footer img {
             height: 1.5rem;
-        }
-    }
-    @media (max-width: 675px) {
-        .help-container {
-            flex-direction: column;
-        }
-        .footer {
-            gap: 2rem;
-        }
-        .footer img {
-            height: 1rem;
-        }
-    }
-    @media (max-width: 585px) {
-        .help-container {
-            flex-direction: column;
-        }
-        .footer {
-            gap: 2rem;
-        }
-        .footer img {
-            height: 1rem;
         }
     }
 </style>

@@ -157,7 +157,7 @@
 					},
 					title: {
 						display: true,
-						text: 'Tx. inc. cum. (* 10\u2075 hab.)    ',
+						text: 'Inc. cum. (* 10\u2075 hab.)    ',
 						padding: 0
 					}
 				}

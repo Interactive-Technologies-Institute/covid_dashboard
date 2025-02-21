@@ -86,7 +86,7 @@
 
 {#if isOpen}
 	<div class="sidebar-open content absolute top-0 left-0 z-30 w-1/4 h-screen">
-		<div class="sidebar absolute z-10 top-0 left-0 pt-20 w-[420px] bg-gray-600 h-screen self-center" class:is-open={isOpen}>
+		<div class="sidebar absolute z-10 top-0 left-0 pt-20 w-[420px] bg-gray-500 h-screen self-center" class:is-open={isOpen}>
 			<button class="menu-button absolute top-[10px] left-[10px] z-20"
 							on:click={() => (isOpen = !isOpen)}
 							class:open={isOpen}>

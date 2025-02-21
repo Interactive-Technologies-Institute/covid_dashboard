@@ -21,7 +21,7 @@
 
 	export let chartData: number[];
 	export let chart2Data: ChartData[] | null;
-	let date = data.minDate;
+	export let date;
 
 	export let hoveredConcelho: number | null;
 

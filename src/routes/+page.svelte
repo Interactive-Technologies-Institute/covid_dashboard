@@ -248,6 +248,7 @@
 			bind:hoveredConcelho={hoveredConcelho}
 			chartData={chartData}
 			chart2Data={chart2Data}
+			{date}
 		/>
 		<HelpButton/>
 		<ColorScale

@@ -4,9 +4,6 @@
     import { key, mapboxgl, type MBMapContext } from './Map/mapboxgl';
     import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
     import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
-		import { base } from '$app/paths';
-
-    let geocoder: any;
 
     const { getMap } = getContext<MBMapContext>(key);
     const map = getMap();
@@ -37,15 +34,12 @@
         return;
       }
 
-      //const locations = await (await fetch(base + "/data/portugal_locations_output.json")).json();
-
       const geocoder = new MapboxGeocoder({
            accessToken: mapboxgl.accessToken,
            mapboxgl: mapboxgl,
            placeholder: 'Procurar...',
            bbox: [-9.5, 36.8, -6.2, 42.2],
            countries: 'PT',
-           //localGeocoder: (query) => busca(query, locations)!,
       });
 
       map!.addControl(geocoder, 'top-left');

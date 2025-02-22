@@ -8,7 +8,8 @@
     export let id: string;
     export let url: string;
 	export let visibility: boolean = false;
-    export let icon: string;
+    export let icon_url: string;
+    export let icon_size: number;
 
 	let initialized: boolean = false;
 
@@ -27,31 +28,37 @@
 
 
     function initialize() {
-        map.addSource(sourceId, {
-            type: 'geojson',
-            data: url
-        });
+        map.loadImage(icon_url, (error, image) => {
+            if (error) throw error;
+            if (!image) throw "image is undefined";
 
-        map.addLayer({
-            id: layerId,
-            type: 'symbol',
-            source: sourceId,
-            layout: {
-                'icon-image': icon,
-                'icon-size': 0.7, /*[
-                    'interpolate', ['linear'], ['zoom'],
-                    6, 0.5,  
-                    15, 1.5  
-                ], */
-                'text-field': '', 
-                'text-offset': [0, 1.5],
-                'text-anchor': 'top'
-            }
-        }, 'dummy-top');
+            let icon_name = id + '-icon';
 
-        //map.moveLayer(layerId);
-        
-        map.on('mouseenter', layerId, (e) => {
+            map.addImage(icon_name, image);
+
+            map.addSource(sourceId, {
+                type: 'geojson',
+                data: url
+            });
+
+            map.addLayer({
+                id: layerId,
+                type: 'symbol',
+                source: sourceId,
+                layout: {
+                    'icon-image': icon_name,
+                    'icon-size': icon_size, /*[
+                        'interpolate', ['linear'], ['zoom'],
+                        6, 0.5,  
+                        15, 1.5  
+                    ], */
+                    'text-field': '', 
+                   'text-offset': [0, 1.5],
+                    'text-anchor': 'top'
+                }
+            }, 'dummy-top');
+
+            map.on('mouseenter', layerId, (e) => {
             map.getCanvas().style.cursor = 'pointer';
 
             const feature = e.features?.[0];
@@ -64,18 +71,19 @@
                     .setHTML(`<h3>${title}</h3>`)
                     .addTo(map);
             }
+            });
+
+            map.on('mouseleave', layerId, () => {
+                map.getCanvas().style.cursor = '';
+
+                const popups = document.getElementsByClassName('mapboxgl-popup');
+                while (popups.length) {
+                    popups[0].remove();
+                }
+            });
+
+            initialized = true;
         });
-
-        map.on('mouseleave', layerId, () => {
-            map.getCanvas().style.cursor = '';
-
-            const popups = document.getElementsByClassName('mapboxgl-popup');
-            while (popups.length) {
-                popups[0].remove();
-            }
-        });
-
-        initialized = true;
     }
 
     $: {

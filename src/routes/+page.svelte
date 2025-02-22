@@ -211,21 +211,23 @@
 				id="hospitais"
 				url={base + '/data/hospitals.json'}
 				visibility={hospitais}
-				icon="hospital"
+				icon_url={base + '/icons/hospital.png'}
+				icon_size={0.8}
 			/>
 			<PoisLayer
 				id="escolas"
 				url={base + '/data/schools.json'}
 				visibility={escolas}
-				icon="college"
+				icon_url={base + '/icons/college.png'}
+				icon_size={0.8}
 			/>
 			<PoisLayer
 				id="casasDeRepouso"
 				url={base + '/data/nursing-homes.json'}
 				visibility={casasDeRepouso}
-					icon="lodging"
+				icon_url={base + '/icons/residential-community.png'}
+				icon_size={1.0}
 			/>
-
 
 			<ConcelhoBorderLayer
 				id="hovered-concelho"

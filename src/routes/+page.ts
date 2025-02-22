@@ -44,11 +44,9 @@ export async function load(e: PageLoadEvent) {
 	const downloadJson = async (n: number, type: string) => {
 		const url =  `${base}/data/${type}/${n}.json`;
 
-		const response = await fetch(url);
+		const response = await e.fetch(url);
 
 		const data = await response.json() as PixelJson;
-	    
-		console.log(`carreguei ${type} ${n}`);
 
 		return data;
 	};

@@ -13,17 +13,20 @@
 
 	function toggleColorButton() {
 		isColorButtonOpen = !isColorButtonOpen;
-		console.log('isColorButtonOpen:', isColorButtonOpen);
 	}
 </script>
 
 <style>
+		.color-scale-button-open {
+				z-index: 50;
+		}
+
     .color-scale-content {
         z-index: -10;
     }
 
     .color-scale-content.color-scale-open {
-        z-index: 20;
+        z-index: 40;
     }
 
     .color-scale {
@@ -54,20 +57,36 @@
         margin: 0 auto;
         height: 1rem;
     }
+
+    .tooltip-container:hover .tooltip {
+        visibility: visible;
+    }
+
+    .tooltip {
+        visibility: hidden;
+        background-color: white;
+        color: black;
+        text-align: center;
+        padding: 5px 10px;
+        border-radius: 4px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        white-space: nowrap;
+		}
+
     @media (max-width: 510px) {
-        .color-scale-button{
-            bottom: 258px;
+        .tooltip-container{
+            bottom: 220px;
         }
 				.color-scale{
-						bottom: 298px;
+						bottom: 260px;
 				}
     }
 </style>
 
 {#if config}
-	<div class="color-scale-content absolute bottom-0 right-0 z-20 w-[210px] h-[600px] overflow-hidden" class:color-scale-open={isColorButtonOpen}>
+	<div class="color-scale-content absolute bottom-0 right-0 z-40 w-[210px] h-[600px] overflow-hidden" class:color-scale-open={isColorButtonOpen}>
 		<div
-			class="color-scale absolute z-10 bottom-[175px] right-2 bg-white border border-gray-200 rounded-lg shadow w-[180px] flex flex-col justify-center items-start"
+			class="color-scale absolute z-40 bottom-[175px] right-2 bg-white border border-gray-200 rounded-lg shadow w-[180px] flex flex-col justify-center items-start"
 			class:is-open={isColorButtonOpen}
 		>
 			<div class="rounded-t-lg bg-blue-600 w-full p-2.5 flex flex-col">
@@ -89,9 +108,12 @@
 			</div>
 		</div>
 	</div>
-	<button class="color-scale-button absolute bottom-[175px] right-2 z-20"
-					on:click={toggleColorButton}
-	>
-		<img src="{base}/icons/color_scale_icon.svg" alt="MENU" />
-	</button>
+	<div class="tooltip-container absolute bottom-[137px] right-2 z-10" class:color-scale-button-open={isColorButtonOpen}>
+		<button class="color-scale-button"
+						on:click={toggleColorButton}
+		>
+			<img src="{base}/icons/color_scale_icon.svg" alt="Legenda" />
+		</button>
+		<div class="tooltip absolute right-2 z-10">Legenda</div>
+	</div>
 {/if}

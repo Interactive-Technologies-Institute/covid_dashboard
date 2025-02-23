@@ -16,7 +16,7 @@
 		map = new mapboxgl.Map({
 			container: node,
 			style: 'mapbox://styles/mapbox/light-v11',
-			center: [-9.469218750000001, 39.56827914916011],
+			center: [-8.13031, 39.69484],
 			zoom: 6,
 			minZoom: 6,
 			maxZoom: 15
@@ -97,7 +97,7 @@
         display: block !important;
         transform: translate(-50%, 0) !important;
         left: 50% !important;
-				z-index: 30 !important;
+				z-index: 20 !important;
     }
 
     :global(.mapboxgl-ctrl-bottom-left) {
@@ -188,6 +188,13 @@
             position: absolute !important;
             bottom: 193px !important;
 						right: 1px !important;
+        }
+
+        :global(.mapboxgl-ctrl-scale) {
+            float: none !important;
+            position: absolute !important;
+            bottom: 110px !important;
+            right: 85% !important;
         }
 
     }

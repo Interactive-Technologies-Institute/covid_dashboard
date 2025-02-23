@@ -23,7 +23,7 @@
 				if (isLastDate) {
 					isPlaying = false;
 				}
-			}, 1000);
+			}, 500);
 		} else if (!isPlaying && timer) {
 			clearInterval(timer);
 			timer = undefined;

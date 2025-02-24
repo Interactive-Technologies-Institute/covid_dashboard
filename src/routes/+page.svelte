@@ -212,21 +212,21 @@
 				url={base + '/data/hospitals.json'}
 				visibility={hospitais}
 				icon_url={base + '/icons/hospital.png'}
-				icon_size={0.8}
+				icon_size={0.7}
 			/>
 			<PoisLayer
 				id="escolas"
 				url={base + '/data/schools.json'}
 				visibility={escolas}
 				icon_url={base + '/icons/college.png'}
-				icon_size={0.8}
+				icon_size={0.7}
 			/>
 			<PoisLayer
 				id="casasDeRepouso"
 				url={base + '/data/nursing-homes.json'}
 				visibility={casasDeRepouso}
 				icon_url={base + '/icons/residential-community.png'}
-				icon_size={1.0}
+				icon_size={1.1}
 			/>
 
 			<ConcelhoBorderLayer

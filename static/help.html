@@ -6,7 +6,26 @@
 	<title>Manual de Ajuda</title>
 </head>
 
+<script>
+	window.onscroll = function() {
+		const button_top = document.getElementById("btnTopo");
+		if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+			button_top.style.display = "block";
+		} else {
+			button_top.style.display = "none";
+		}
+	};
+	function backToTop() {
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth"
+		});
+	}
+</script>
+
 <main class="help-page">
+	<button id="btnTopo" class="back-to-top" onclick="backToTop()">⬆ Voltar ao Início</button>
+
 	<div class="help-header">
 		<h1>Manual de Utilização</h1>
 	</div>
@@ -38,61 +57,60 @@
 			<p id="intro-text"></p>
 
 			<div>
-				<img src="help_page_content/image1.png" alt="Dashboard" style="width: 80%; justify-self: center;">
+				<img src="help_page_content/fig1.png" alt="Dashboard" style="width: 80%; justify-self: center;">
 			</div>
 
 			<h2 id="title2">2. Métodos</h2>
 			<p id="methods"></p>
-
 			<div>
-				<img src="help_page_content/image2.png" alt="Dashboard" style="width: 50%; justify-self: center;">
+				<img src="help_page_content/fig2_1.png" alt="Dashboard" style="width: 60%; justify-self: center;">
 			</div>
-
 			<h3 id="subtitle21">2.1. Dados de entrada</h3>
 			<p id="methods2_1a"></p>
 			<div>
-				<img src="help_page_content/image3.png" alt="Dashboard" style="width: 30%; justify-self: center;">
+				<img src="help_page_content/fig2_2.png" alt="Dashboard" style="width: 30%; justify-self: center;">
 			</div>
 			<p id="methods2_1b"></p>
 			<div>
-				<img src="help_page_content/image4.png" alt="Dashboard" style="width: 30%; justify-self: center;">
+				<img src="help_page_content/fig2_3.png" alt="Dashboard" style="width: 30%; justify-self: center;">
 			</div>
 
 			<h3 id="subtitle22">2.2. Correlação espacial</h3>
 			<p id="methods2_2a"></p>
 			<div>
-				<img src="help_page_content/image5.png" alt="Dashboard" style="width: 30%; justify-self: center;">
+				<img src="help_page_content/fig2_4.png" alt="Dashboard" style="width: 30%; justify-self: center;">
 			</div>
 			<p id="methods2_2b"></p>
 
 			<h3 id="subtitle23">2.3. Simulação Sequencial Directa por Blocos</h3>
 			<p id="methods2_3a"></p>
 			<div>
-				<img src="help_page_content/image6.png" alt="Dashboard" style="width: 30%; justify-self: center;">
+				<img src="help_page_content/fig2_5.png" alt="Dashboard" style="width: 30%; justify-self: center;">
 			</div>
 			<p id="methods2_3b"></p>
 
 			<h3 id="subtitle24">2.4. Mapas de incidência e quantificação da incerteza espacial</h3>
 			<p id="methods2_4a"></p>
 			<div>
-				<img src="help_page_content/image7.png" alt="Dashboard" style="width: 30%; justify-self: center;">
+				<img src="help_page_content/fig2_6.png" alt="Dashboard" style="width: 30%; justify-self: center;">
 			</div>
 			<p id="methods2_4b"></p>
 			<div>
-				<img src="help_page_content/image8.png" alt="Dashboard" style="width: 30%; justify-self: center;">
+				<img src="help_page_content/fig2_7.png" alt="Dashboard" style="width: 30%; justify-self: center;">
 			</div>
 			<p id="methods2_4c"></p>
 			<div>
-				<img src="help_page_content/image9.png" alt="Dashboard" style="width: 30%; justify-self: center;">
+				<img src="help_page_content/fig2_8.png" alt="Dashboard" style="width: 30%; justify-self: center;">
 			</div>
 			<p id="methods2_4d"></p>
 			<div>
-				<img src="help_page_content/image10.png" alt="Dashboard" style="width: 30%; justify-self: center;">
+				<img src="help_page_content/fig2_9.png" alt="Dashboard" style="width: 30%; justify-self: center;">
 			</div>
 
 			<h2 id="title3">3. Navegação</h2>
+
 			<div>
-				<img src="help_page_content/image11.png" alt="Dashboard" style="width: 70%">
+				<img src="help_page_content/fig3.png" alt="Dashboard" style="width: 80%; justify-self: center;">
 			</div>
 			<p id="navigation"></p>
 
@@ -117,11 +135,11 @@
 						<td>
 							Pode selecionar um dos três tipos de mapa:<br>
 							<strong>Incidência cumulativa</strong> – O valor em cada pixel
-							representa a incidência mediana diária por COVID-19 por 100.000 habitantes;<br>
+							representa a incidência mediana diária de COVID-19 por 100 000 habitantes;<br>
 							<strong>Incerteza espacial</strong> – Em cada pixel, corresponde ao valor da amplitude interquartil
 							(diferença entre valores nos percentis 75 e 25 da distribuição dos valores simulados no pixel);<br>
 							<strong>Probabilidade de excedência</strong> – Representa probabilidade conjunta (i.e. de todos os pixéis)
-							excederem um valor de corte especificado (240/100000 habitantes).
+							excederem um valor de corte especificado (240/100 000 habitantes).
 						</td>
 					</tr>
 					<tr>
@@ -132,21 +150,21 @@
 					<tr>
 						<td>4</td>
 						<td>Selectores de camadas temáticas</td>
-						<td>Permite visualizar no mapa os limites das ACES, Concelhos e Freguesias, e a localização de equipamentos (Sociais, de Saúde e de Ensino) podendo combinar várias camadas em simultâneo.</td>
+						<td>Permite visualizar no mapa os limites dos ACES, Concelhos e Freguesias, e a localização de equipamentos (Sociais, de Saúde e de Ensino) podendo combinar várias camadas em simultâneo.</td>
 					</tr>
 					<tr>
 						<td>5</td>
 						<td>Gráfico da curva epidémica</td>
-						<td>Apresenta a curva de evolução temporal, em dias, da distribuição da incidência cumulativa da COVID-19 em Portugal durante o período analisado. A barra preta vertical encontra-se posicionada no dia a que se refere o mapa ativo.</td>
+						<td>Apresenta a curva de evolução temporal, em dias, da distribuição da incidência cumulativa de COVID-19 em Portugal durante o período analisado. A barra preta vertical encontra-se posicionada no dia a que se refere o mapa ativo.</td>
 					</tr>
 					<tr>
 						<td>6</td>
 						<td>Gráfico da curva epidémica por ACES</td>
-						<td>Apresenta as curvas de evolução temporal da incidência cumulativa da COVID-19 nos concelhos pertencentes ao ACES selecionado. Para visualizar as curvas dos municípios de um ACES específico, é necessário clicar com o cursor no mapa em cima do ACES desejado.</td>
+						<td>Apresenta as curvas de evolução temporal da incidência cumulativa de COVID-19 nos concelhos abrangidos pelo ACES selecionado. Para visualizar as curvas dos municípios abrangidos por um ACES específico, é necessário clicar com o cursor no mapa em cima do ACES desejado.</td>
 					</tr>
 					<tr>
 						<td>7</td>
-						<td>Procurar Localidade</td>
+						<td>Procurar localidade</td>
 						<td>Caixa de pesquisa para localizar e recentrar o mapa numa localidade.</td>
 					</tr>
 					<tr>
@@ -159,7 +177,7 @@
 						<td>Controlo time lapse</td>
 						<td>Permite ver uma versão animada do mapa com visualização sequencial de mapas <a href="#ref2">diários</a>.
 							Permite visualizar a dinâmica espacial e temporal do mapa usando os botões disponíveis:<br>
-							<img src="help_page_content/table9.png" alt="Dashboard" style="width: 40%; justify-self: center">
+							<img src="help_page_content/table9.png" alt="Dashboard" style="width: 50%; justify-self: center">
 							A data indicada no centro do controlo indica o dia que está a ser visualizado.
 						</td>
 					</tr>
@@ -167,11 +185,11 @@
 						<td>10</td>
 						<td>Caixa texto com valor da medida por pixel</td>
 						<td>Dá informação, para um pixel (onde se encontra posicionado o cursor do rato) e dia específico:<br>
-							- valor da medida no pixel.<br>
-							- Nome do ACES, Município e Freguesia a que pertence o pixel<br><br>
+							- valor da medida no pixel;<br>
+							- nome do ACES, Município e Freguesia a que pertence o pixel.<br><br>
 							Quando o mapa é o da incidência cumulativa fornece as seguintes informações adicionais:<br>
-							- intervalo confiança 95% para o valor da incidência.<br>
-							- valor da incidência cumulativa no concelho a que pertence o pixel</td>
+							- intervalo de confiança a 95% para o valor da incidência;<br>
+							- valor da incidência cumulativa no concelho a que pertence o pixel.</td>
 					</tr>
 					<tr>
 						<td>11</td>
@@ -190,12 +208,17 @@
 						<td>Ferramenta que permite alternar entre ocultar e exibir a legenda de cores do
 							mapa selecionado. Quando ocultado aumenta a área de visualização do mapa.</td>
 					</tr>
+					<tr>
+						<td>14</td>
+						<td>Zoom do mapa</td>
+						<td>Ferramenta que permite aumentar e reduzir o mapa.</td>
+					</tr>
 
 					</tbody>
 				</table>
 			</div>
 
-			<h2 id="title34">4. Metadados</h2>
+			<h2 id="title4">4. Metadados</h2>
 			<div class="table-container">
 				<table style="border: 1px solid gray; border-collapse: collapse; width: 100%;">
 					<thead>
@@ -209,11 +232,11 @@
 					<tbody>
 					<tr>
 						<td>Casos COVID-19</td>
-						<td>Os dados da COVID-19 utilizados para a construção desta ferramenta não são de acesso público,
+						<td>Os dados relativos à COVID-19 utilizados para a construção desta ferramenta não são de acesso público,
 							mas podem ser	obtidos através do SINAVE (Sistema Nacional de Vigilância Epidemiológica),
-							que regista todos os novos casos confirmados de SARS-CoV-2 (detetados via PCR e RAT).
+							que regista todos os novos casos confirmados de infeção provocada pelo vírus SARS-CoV-2 (detetados via PCR e RAT).
 
-							Os dados foram usados sob licença e fornecidos pela Direção Geral de Saúde (DGS) após assinatura de um acordo de confidencialidade e privacidade no âmbito do Artigo 39 do Decreto-Lei 2-B/2020 de 2 de abril 2020.</td>
+							Os dados foram usados sob licença e fornecidos pela Direcção-Geral de Saúde (DGS) após assinatura de um acordo de confidencialidade e privacidade no âmbito do Artigo 39º do Decreto-Lei 2-B/2020, de 2 de abril 2020.</td>
 						<td>2020</td>
 						<td>DGS</td>
 					</tr>
@@ -225,7 +248,7 @@
 					</tr>
 					<tr>
 						<td>Equipamentos de Saúde</td>
-						<td>Conjunto das Unidades hospitalares,	Centros de Saúde e as Unidades funcionais dos ACES. Dados extraidos, respectivamente, a partir das seguintes fontes:<br>
+						<td>Conjunto das Unidades hospitalares,	Centros de Saúde e Unidades funcionais dos ACES. Dados extraídos, respetivamente, a partir das seguintes fontes:<br>
 							<a href="https://www.sns.gov.pt/institucional/entidades-de-saude/" target="_blank">https://www.sns.gov.pt/institucional/entidades-de-saude/</a><br>
 							<a href="https://bicsp.min-saude.pt/Paginas/default.aspx" target="_blank">https://bicsp.min-saude.pt/Paginas/default.aspx</a>
 						</td>
@@ -234,7 +257,7 @@
 					</tr>
 					<tr>
 						<td>Equipamentos de Ensino</td>
-						<td>Localização e tipologia de estabelecimentos de ensino extraídos da base de dados OpenStreetMap.</td>
+						<td>Localização e tipologia dos estabelecimentos de ensino extraídos da base de dados OpenStreetMap.</td>
 						<td>2024</td>
 						<td><a href="https://www.openstreetmap.org/" target="_blank">https://www.openstreetmap.org/</a></td>
 					</tr>
@@ -246,7 +269,7 @@
 					</tr>
 					<tr>
 						<td>Toponímia - OpenStreetMap</td>
-						<td>Nomes de localidades, ruas e outros topónimos extraídos da base de dados OpenStreetMap.</td>
+						<td>Nome de localidades, ruas e outros topónimos extraídos da base de dados OpenStreetMap.</td>
 						<td>2024</td>
 						<td><a href="https://www.openstreetmap.org/" target="_blank">https://www.openstreetmap.org/</a></td>
 					</tr>
@@ -375,7 +398,7 @@
     }
 
     .table-container {
-        width: 800px;
+        width: 70%;
         margin: 20px auto;
         overflow-x: auto;
     }
@@ -396,6 +419,27 @@
 
     th {
         background-color: #f0f0f0;
+    }
+
+    .back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 14px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        display: none; /* Inicialmente oculto */
+        z-index: 1000;
+        transition: opacity 0.3s ease;
+    }
+
+    .back-to-top:hover {
+        background-color: #0056b3;
     }
 
     @media (max-width: 920px) {

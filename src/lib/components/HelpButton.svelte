@@ -33,7 +33,8 @@
         background-color: white;
         color: black;
         text-align: center;
-        padding: 5px 10px;
+        font-size: small;
+        padding: 3px 7px;
         border-radius: 4px;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
         white-space: nowrap;
@@ -53,7 +54,7 @@
 			<img src="{base}/icons/help.svg" alt="Manual de Utilização" class="h-8" />
 		</a>
 	</button>
-	<div class="tooltip absolute right-2 z-30">Manual de Utilização</div>
+	<div class="tooltip absolute bottom-[12px] right-[34px] z-30">Manual de Utilização</div>
 </div>
 
 

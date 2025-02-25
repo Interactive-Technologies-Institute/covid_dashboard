@@ -47,16 +47,16 @@ document.getElementById('methods2_1a').textContent = methods2_1a;
 
 let methods2_1b = 'Adicionalmente, para se obterem os mapas com elevada resolução espacial (que no caso do ' +
 	'Dashboard SCOPE são 2 Km), as áreas dos concelhos são previamente discretizadas numa malha regular de nós. ' +
-	'Para além disso, a discretização das áreas por concelho é crítica para o algoritmo geoestatístico na medida em ' +
+	'Esta discretização é crítica para o algoritmo geoestatístico na medida em ' +
 	'que fornece a informação sobre as posições relativas, dimensões e geometrias dos concelhos. Na figura seguinte ' +
 	'(Figura 2.3) está ilustrada a malha de nós (pontos cinzentos) para um dado concelho.';
 
 document.getElementById('methods2_1b').textContent = methods2_1b;
 
 let methods2_2a = 'Se um par de concelhos está próximo um do outro, em termos de distância euclideana, ' +
-	'espera-se que os valores da incidência sejam parecidos (i.e. que a sua diferença seja pequena). À medida que ' +
+	'espera-se que os valores da incidência sejam parecidos (i.e. que a correlação espacial seja grande). À medida que ' +
 	'a distância entre pares de concelhos aumenta, espera-se que os valores de incidência tendam a ser cada vez menos ' +
-	'semelhantes (i.e. que a sua diferença seja maior). Esta tendência pode ser quantificada através de um semivariograma ' +
+	'semelhantes (i.e. que a correlação espacial seja pequena). Esta tendência pode ser quantificada através de um semivariograma ' +
 	'(Figura 2.4) que reflecte o mais aproximadamente possível a correlação espacial observada na incidência cumulativa dos concelhos.';
 
 document.getElementById('methods2_2a').textContent = methods2_2a;
